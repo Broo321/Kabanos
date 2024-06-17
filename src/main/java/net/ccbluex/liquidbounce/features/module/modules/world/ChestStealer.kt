@@ -10,7 +10,7 @@ import net.ccbluex.liquidbounce.event.EventTarget
 import net.ccbluex.liquidbounce.event.PacketEvent
 import net.ccbluex.liquidbounce.event.Render2DEvent
 import net.ccbluex.liquidbounce.features.module.Module
-import net.ccbluex.liquidbounce.features.module.ModuleCategory
+import net.ccbluex.liquidbounce.features.module.Category
 import net.ccbluex.liquidbounce.features.module.modules.combat.AutoArmor
 import net.ccbluex.liquidbounce.features.module.modules.player.InventoryCleaner
 import net.ccbluex.liquidbounce.features.module.modules.player.InventoryCleaner.canBeSortedTo
@@ -24,7 +24,7 @@ import net.ccbluex.liquidbounce.utils.inventory.InventoryManager.canClickInvento
 import net.ccbluex.liquidbounce.utils.inventory.InventoryUtils.countSpaceInInventory
 import net.ccbluex.liquidbounce.utils.inventory.InventoryUtils.hasSpaceInInventory
 import net.ccbluex.liquidbounce.utils.inventory.InventoryUtils.serverSlot
-import net.ccbluex.liquidbounce.utils.render.RenderUtils.drawRectNew
+import net.ccbluex.liquidbounce.utils.render.RenderUtils.drawRect
 import net.ccbluex.liquidbounce.utils.timing.TimeUtils.randomDelay
 import net.ccbluex.liquidbounce.value.BoolValue
 import net.ccbluex.liquidbounce.value.IntegerValue
@@ -39,15 +39,20 @@ import net.minecraft.network.play.server.S2DPacketOpenWindow
 import net.minecraft.network.play.server.S2EPacketCloseWindow
 import net.minecraft.network.play.server.S30PacketWindowItems
 import java.awt.Color
+import kotlin.math.sqrt
 
-object ChestStealer : Module("ChestStealer", ModuleCategory.WORLD) {
+object ChestStealer : Module("ChestStealer", Category.WORLD, hideModule = false) {
+
+    private val smartDelay by BoolValue("SmartDelay", false)
+    private val multiplier by IntegerValue("DelayMultiplier", 120, 0..500){ smartDelay}
+    private val smartOrder by BoolValue("SmartOrder", true){ smartDelay}
 
     private val maxDelay: Int by object : IntegerValue("MaxDelay", 50, 0..500) {
+        override fun isSupported() = !smartDelay
         override fun onChange(oldValue: Int, newValue: Int) = newValue.coerceAtLeast(minDelay)
     }
     private val minDelay by object : IntegerValue("MinDelay", 50, 0..500) {
-        override fun isSupported() = maxDelay > 0
-
+        override fun isSupported() = maxDelay > 0 && !smartDelay
         override fun onChange(oldValue: Int, newValue: Int) = newValue.coerceAtMost(maxDelay)
     }
 
@@ -63,6 +68,8 @@ object ChestStealer : Module("ChestStealer", ModuleCategory.WORLD) {
     private val randomSlot by BoolValue("RandomSlot", true)
 
     private val progressBar by BoolValue("ProgressBar", true, subjective = true)
+
+    val silentGUI by BoolValue("SilentGUI", false, subjective = true)
 
     private var progress: Float? = null
         set(value) {
@@ -171,7 +178,15 @@ object ChestStealer : Module("ChestStealer", ModuleCategory.WORLD) {
                         }
                     }
 
-                    delay(randomDelay(minDelay, maxDelay).toLong())
+                    if (smartDelay){
+                        if (index + 1 < itemsToSteal.size) {
+                            val dist = getSquaredDistanceBwSlots(getCords(slot), getCords(itemsToSteal[index + 1].first))
+                            val trueDelay = sqrt(dist.toDouble())* multiplier
+                            delay(randomDelay(trueDelay.toInt(), trueDelay.toInt()+20).toLong())
+                        }
+                    } else{
+                        delay(randomDelay(minDelay, maxDelay).toLong())
+                    }
                 }
             }
 
@@ -198,12 +213,22 @@ object ChestStealer : Module("ChestStealer", ModuleCategory.WORLD) {
         }
     }
 
+    private fun getCords(slot: Int): Pair<Int,Int> {
+        val x = slot % 9
+        val y = slot / 9
+        return Pair(x,y)
+    }
+    private fun getSquaredDistanceBwSlots(from:Pair<Int,Int>, to:Pair<Int,Int>): Int {
+       val distance = (from.first-to.first)*(from.first-to.first) + (from.second-to.second)*(from.second-to.second)
+        return distance
+    }
+
     private fun getItemsToSteal(): MutableList<Triple<Int, ItemStack, Int?>> {
         val sortBlacklist = BooleanArray(9)
 
         var spaceInInventory = countSpaceInInventory()
 
-        return stacks.dropLast(36)
+        val itemsToSteal = stacks.dropLast(36)
             .mapIndexedNotNull { index, stack ->
                 stack ?: return@mapIndexedNotNull null
 
@@ -269,6 +294,31 @@ object ChestStealer : Module("ChestStealer", ModuleCategory.WORLD) {
                 if (AutoArmor.canEquipFromChest())
                     it.sortByDescending { it.second.item is ItemArmor }
             }
+        if (smartOrder){
+            sortBasedOnOptimumPath(itemsToSteal)
+        }
+        return itemsToSteal
+    }
+
+    private fun sortBasedOnOptimumPath(itemsToSteal: MutableList<Triple<Int, ItemStack, Int?>>) {
+        for (i in itemsToSteal.indices) {
+            var nextIndex = i
+            var minDistance = Double.MAX_VALUE
+            var next: Triple<Int, ItemStack, Int?>? = null
+            for (j in i + 1 until itemsToSteal.size) {
+                val distance =
+                    getSquaredDistanceBwSlots(getCords(itemsToSteal[i].first), getCords(itemsToSteal[j].first))
+                if (distance < minDistance) {
+                    minDistance = distance.toDouble()
+                    next = itemsToSteal[j]
+                    nextIndex = j
+                }
+            }
+            next?.let {
+                itemsToSteal[nextIndex] = itemsToSteal[i + 1]
+                itemsToSteal[i + 1] = next
+            }
+        }
     }
 
 
@@ -289,9 +339,9 @@ object ChestStealer : Module("ChestStealer", ModuleCategory.WORLD) {
 
         easingProgress += (progress - easingProgress) / 6f * event.partialTicks
 
-        drawRectNew(minX - 2, minY - 2, maxX + 2, maxY + 2, Color(200, 200, 200).rgb)
-        drawRectNew(minX, minY, maxX, maxY, Color(50, 50, 50).rgb)
-        drawRectNew(minX, minY, minX + (maxX - minX) * easingProgress, maxY, Color.HSBtoRGB(easingProgress / 5, 1f, 1f) or 0xFF0000)
+        drawRect(minX - 2, minY - 2, maxX + 2, maxY + 2, Color(200, 200, 200).rgb)
+        drawRect(minX, minY, maxX, maxY, Color(50, 50, 50).rgb)
+        drawRect(minX, minY, minX + (maxX - minX) * easingProgress, maxY, Color.HSBtoRGB(easingProgress / 5, 1f, 1f) or 0xFF0000)
     }
 
     @EventTarget

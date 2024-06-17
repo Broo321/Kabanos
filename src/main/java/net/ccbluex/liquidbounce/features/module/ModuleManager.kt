@@ -40,16 +40,7 @@ object ModuleManager : Listenable {
     fun registerModules() {
         LOGGER.info("[ModuleManager] Loading modules...")
 
-        // Register modules which need to be instanced (Java classes)
-        registerModules(
-            Ignite::class.java,
-            ItemTeleport::class.java,
-            Phase::class.java,
-            Teleport::class.java,
-            TeleportHit::class.java
-        )
-
-        // Register modules which have already been instanced (Kotlin objects)
+        // Register modules
         registerModules(
             AbortBreaking,
             Aimbot,
@@ -64,6 +55,7 @@ object ModuleManager : Listenable {
             AntiExploit,
             AntiHunger,
             AntiFireball,
+            AntiVanish,
             AtAllProvider,
             AttackEffects,
             AutoAccount,
@@ -85,6 +77,7 @@ object ModuleManager : Listenable {
             AutoWeapon,
             AvoidHazards,
             Backtrack,
+            BedDefender,
             BedGodMode,
             BedProtectionESP,
             Blink,
@@ -130,10 +123,12 @@ object ModuleManager : Listenable {
             HighJump,
             HitBox,
             IceSpeed,
+            Ignite,
             InventoryCleaner,
             InventoryMove,
             ItemESP,
             ItemPhysics,
+            ItemTeleport,
             KeepAlive,
             KeepContainer,
             KeyPearl,
@@ -149,6 +144,7 @@ object ModuleManager : Listenable {
             MultiActions,
             NameProtect,
             NameTags,
+            NoAchievement,
             NoBob,
             NoBooks,
             NoClip,
@@ -167,9 +163,12 @@ object ModuleManager : Listenable {
             NoSwing,
             NoWeb,
             Nuker,
+            PacketDebugger,
             Parkour,
             PerfectHorseJump,
+            Phase,
             PingSpoof,
+            PingSpoof2,
             Plugins,
             PortalMenu,
             PotionSaver,
@@ -196,13 +195,15 @@ object ModuleManager : Listenable {
             StorageESP,
             Strafe,
             SuperKnockback,
+            Teleport,
+            TeleportHit,
             TNTBlock,
             TNTESP,
+            TNTTimer,
             Teams,
             TimerRange,
             Timer,
             Tracers,
-            Trigger,
             TrueSight,
             VehicleOneHit,
             Velocity,
@@ -211,7 +212,8 @@ object ModuleManager : Listenable {
             XRay,
             Zoot,
             KeepSprint,
-            Disabler
+            Disabler,
+            OverrideRaycast
         )
 
         InventoryManager.startCoroutine()

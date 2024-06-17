@@ -70,6 +70,8 @@ class KeyEvent(val key: Int) : Event()
  */
 class MotionEvent(val eventState: EventState) : Event()
 
+class PostMotionEvent: Event()
+
 /**
  * Called in "onLivingUpdate" when the player is using a use item.
  *

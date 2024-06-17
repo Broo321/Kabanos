@@ -1,0 +1,1786 @@
+{
+  "CommandPrefix": ".",
+  "ShowRichPresence": true,
+  "targets": {
+    "TargetPlayer": true,
+    "TargetMobs": false,
+    "TargetAnimals": false,
+    "TargetInvisible": true,
+    "TargetDead": false
+  },
+  "features": {
+    "AntiForge": false,
+    "AntiForgeFML": true,
+    "AntiForgeProxy": true,
+    "AntiForgePayloads": true,
+    "FixResourcePackExploit": true,
+    "ClientBrand": "Vanilla",
+    "BungeeSpoof": false,
+    "AutoReconnectDelay": 60000
+  },
+  "thealtening": {
+    "API-Key": ""
+  },
+  "liquidchat": {
+    "token": ""
+  },
+  "DonatorCape": {
+    "TransferCode": ""
+  },
+  "clientConfiguration": {
+    "EnabledClientTitle": true,
+    "EnabledBackground": true,
+    "Particles": false,
+    "StylisedAlts": true,
+    "AltsLength": 16,
+    "CleanAlts": false,
+    "OverrideLanguage": ""
+  },
+  "AbortBreaking": {
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "Aimbot": {
+    "HorizontalAim": true,
+    "VerticalAim": true,
+    "Range": 4.4,
+    "StartFirstRotationSlow": true,
+    "TurnSpeed": 10.0,
+    "InViewTurnSpeed": 35.0,
+    "PredictClientMovement": 2,
+    "PredictEnemyPosition": 1.5,
+    "FOV": 180.0,
+    "Lock": true,
+    "OnClick": false,
+    "Jitter": false,
+    "JitterYawMultiplier": 1.0,
+    "JitterPitchMultiplier": 1.0,
+    "Center": false,
+    "Headlock": false,
+    "HeadBlockHeight": -1.0,
+    "BreakBlocks": true,
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "AirJump": {
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "AirLadder": {
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "Ambience": {
+    "Mode": "Custom",
+    "Time": 19000,
+    "TimeSpeed": 150,
+    "WeatherMode": "None",
+    "WeatherStrength": 1.0,
+    "Hide": false
+  },
+  "Animations": {
+    "Mode": "OneSeven",
+    "OddSwing": false,
+    "SwingSpeed": 15,
+    "Hide": false
+  },
+  "AntiAFK": {
+    "Mode": "Random",
+    "Rotate": true,
+    "RotationDelay": 100,
+    "RotationAngle": 1.0,
+    "Swing": true,
+    "SwingDelay": 100,
+    "Jump": true,
+    "Move": true,
+    "Hide": false
+  },
+  "AntiBlind": {
+    "Confusion": true,
+    "Pumpkin": true,
+    "FireAlpha": 0.3,
+    "BossHealth": true,
+    "Hide": false
+  },
+  "AntiBot": {
+    "Tab": false,
+    "TabMode": "Contains",
+    "EntityID": false,
+    "InvalidUUID": false,
+    "Color": false,
+    "LivingTime": false,
+    "LivingTimeTicks": 46,
+    "Ground": false,
+    "Air": false,
+    "InvalidGround": false,
+    "Swing": false,
+    "Health": false,
+    "Derp": false,
+    "WasInvisible": false,
+    "Armor": false,
+    "Ping": false,
+    "NeedHit": false,
+    "DuplicateInWorld": false,
+    "DuplicateInTab": false,
+    "Properties": true,
+    "AlwaysInRadius": false,
+    "AlwaysInRadiusBlocks": 30.0,
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "AntiCactus": {
+    "Hide": false
+  },
+  "AntiExploit": {
+    "LimitExplosionStrength": true,
+    "LimitExplosionRange": true,
+    "LimitParticlesAmount": true,
+    "LimitParticlesSpeed": true,
+    "LimitedArrowsSpawned": true,
+    "MaxArrowsSpawned": 100,
+    "CancelDemo": true,
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "AntiFireball": {
+    "Range": 4.5,
+    "Swing": "Normal",
+    "Rotations": true,
+    "SmootherMode": "Relative",
+    "Strafe": true,
+    "SimulateShortStop": false,
+    "StartFirstRotationSlow": true,
+    "MaxHorizontalSpeed": 180.0,
+    "MinHorizontalSpeed": 180.0,
+    "MaxVerticalSpeed": 180.0,
+    "MinVerticalSpeed": 180.0,
+    "AngleThresholdUntilReset": 5.0,
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "AntiHunger": {
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "AntiVanish": {
+    "Warn": "Chat",
+    "Hide": false
+  },
+  "AtAllProvider": {
+    "MaxDelay": 1000,
+    "MinDelay": 500,
+    "Retry": false,
+    "Hide": false
+  },
+  "AttackEffects": {
+    "Particle": "Crits",
+    "ParticleAmount": 1,
+    "Sound": "None",
+    "Volume": 1.0,
+    "Pitch": 1.0,
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "AutoAccount": {
+    "AutoRegister": true,
+    "AutoLogin": true,
+    "Password": "axolotlaxolotl",
+    "SendDelay": 250,
+    "AutoSession": false,
+    "RandomAccountOnStart": false,
+    "RelogWhenPasswordInvalid": true,
+    "RelogWhenKicked": false,
+    "ReconnectDelay": 1000,
+    "AccountMode": "RandomName",
+    "SaveToAlts": false,
+    "Hide": false
+  },
+  "AutoArmor": {
+    "MaxDelay": 50,
+    "MinDelay": 50,
+    "MinItemAge": 0,
+    "InvOpen": true,
+    "SimulateInventory": false,
+    "AutoClose": false,
+    "StartDelay": 22,
+    "CloseDelay": 100,
+    "SmartSwap": true,
+    "NoMoveClicks": false,
+    "NoClicksInAir": true,
+    "NoClicksOnGround": true,
+    "Hotbar": true,
+    "DelayedSlotSwitch": true,
+    "NotInContainers": false,
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "AutoBow": {
+    "WaitForBowAimbot": true,
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "AutoBreak": {
+    "Hide": false
+  },
+  "AutoClicker": {
+    "SimulateDoubleClicking": false,
+    "MaxCPS": 17,
+    "MinCPS": 14,
+    "Right": true,
+    "Left": true,
+    "Jitter": false,
+    "AutoBlock": false,
+    "BlockDelay": 50,
+    "RequiresNoInput": false,
+    "maxAngleDifference": 30.0,
+    "Range": 3.0,
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "AutoDisable": {
+    "onFlag": true,
+    "onWorldChange": false,
+    "onDeath": false,
+    "Warn": "Chat",
+    "Hide": false
+  },
+  "AutoFish": {
+    "Hide": false
+  },
+  "AutoLeave": {
+    "Health": 8.0,
+    "Mode": "Quit",
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "AutoPlay": {
+    "Mode": "Paper",
+    "HypixelMode": "Skywars",
+    "SkywarsMode": "SoloNormal",
+    "BedwarsMode": "Solo",
+    "Delay": 50,
+    "Hide": false
+  },
+  "AutoPot": {
+    "Health": 15.0,
+    "Delay": 500,
+    "HealPotion": true,
+    "RegenPotion": true,
+    "FireResPotion": true,
+    "StrengthPotion": true,
+    "JumpPotion": true,
+    "SpeedPotion": true,
+    "OpenInv": false,
+    "SimulateInventory": true,
+    "GroundDistance": 2.0,
+    "Mode": "Normal",
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "AutoProjectile": {
+    "FacingEnemy": true,
+    "Mode": "Normal",
+    "Range": 8.0,
+    "ThrowDelay": 1000,
+    "MinThrowDelay": 1000,
+    "MaxThrowDelay": 1500,
+    "SwitchBackDelay": 500,
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "AutoRespawn": {
+    "Instant": true,
+    "Hide": false
+  },
+  "AutoRod": {
+    "FacingEnemy": true,
+    "IgnoreOnEnemyLowHealth": true,
+    "HealthFromScoreboard": false,
+    "Absorption": false,
+    "ActivationDistance": 8.0,
+    "EnemiesNearby": 1,
+    "PlayerHealthThreshold": 5,
+    "EnemyHealthThreshold": 5,
+    "EscapeHealthThreshold": 10,
+    "PushDelay": 100,
+    "PullbackDelay": 500,
+    "OnUsingItem": false,
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "AutoSoup": {
+    "Health": 15.0,
+    "Delay": 150,
+    "OpenInv": false,
+    "StartDelay": 100,
+    "AutoClose": false,
+    "CloseDelay": 500,
+    "SimulateInventory": true,
+    "Bowl": "Drop",
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "AutoTool": {
+    "FakeItem": true,
+    "SwitchBack": true,
+    "OnlySneaking": false,
+    "Hide": false
+  },
+  "AutoWalk": {
+    "Hide": false
+  },
+  "AutoWeapon": {
+    "OnlySword": false,
+    "SpoofItem": false,
+    "SpoofTicks": 10,
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "AvoidHazards": {
+    "Fire": true,
+    "Cobweb": true,
+    "Cactus": true,
+    "Lava": true,
+    "Water": true,
+    "PressurePlate": true,
+    "Snow": true,
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "Backtrack": {
+    "Delay": 84,
+    "Mode": "Modern",
+    "Caching mode": "ClientPos",
+    "Style": "Smooth",
+    "MaxDistance": 3.5,
+    "MinDistance": 1.52,
+    "Smart": false,
+    "ESP-Mode": "Box",
+    "Rainbow": true,
+    "R": 0,
+    "G": 255,
+    "B": 0,
+    "MaxCachedPositions": 2,
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "BedDefender": {
+    "Rotations": true,
+    "AutoBlock": "Spoof",
+    "Swing": true,
+    "PlaceDelay": 500,
+    "Raycast": "Normal",
+    "Scanner": "Nearest",
+    "Strafe": "Off",
+    "SmootherMode": "Relative",
+    "KeepRotation": true,
+    "KeepTicks": 1,
+    "SimulateShortStop": false,
+    "StartFirstRotationSlow": false,
+    "MaxHorizontalSpeed": 180.0,
+    "MinHorizontalSpeed": 180.0,
+    "MaxVerticalSpeed": 180.0,
+    "MinVerticalSpeed": 180.0,
+    "AngleThresholdUntilReset": 5.0,
+    "OnSneakOnly": true,
+    "AutoSneak": "Off",
+    "TrackCPS": false,
+    "Mark": false,
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "BedGodMode": {
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "BedProtectionESP": {
+    "TargetBlock": "Bed",
+    "LayerRenderMode": "Current",
+    "Radius": 8,
+    "MaxProtectionLayers": 2,
+    "BlockLimit": 256,
+    "BlocksUnderTarget": false,
+    "RenderTargetBlocks": true,
+    "Rainbow": false,
+    "R": 96,
+    "G": 96,
+    "B": 96,
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "Blink": {
+    "Mode": "Sent",
+    "Pulse": false,
+    "PulseDelay": 992,
+    "FakePlayer": false,
+    "Hide": false
+  },
+  "BlockESP": {
+    "Mode": "Box",
+    "Block": 168,
+    "Radius": 40,
+    "BlockLimit": 256,
+    "Rainbow": false,
+    "R": 255,
+    "G": 179,
+    "B": 72,
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "BlockOverlay": {
+    "Info": false,
+    "Rainbow": false,
+    "R": 68,
+    "G": 117,
+    "B": 255,
+    "Hide": false
+  },
+  "BowAimbot": {
+    "Bow": true,
+    "Egg": true,
+    "Snowball": true,
+    "EnderPearl": false,
+    "Priority": "Direction",
+    "Predict": true,
+    "PredictSize": 2.0,
+    "ThroughWalls": false,
+    "Mark": true,
+    "Silent": true,
+    "Strafe": "Silent",
+    "SmootherMode": "Relative",
+    "SimulateShortStop": false,
+    "StartFirstRotationSlow": true,
+    "MaxHorizontalSpeed": 180.0,
+    "MinHorizontalSpeed": 180.0,
+    "MaxVerticalSpeed": 180.0,
+    "MinVerticalSpeed": 180.0,
+    "AngleThresholdUntilReset": 5.0,
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "Breadcrumbs": {
+    "Rainbow": false,
+    "R": 255,
+    "G": 179,
+    "B": 72,
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "BufferSpeed": {
+    "SpeedLimit": true,
+    "MaxSpeed": 2.0,
+    "Buffer": true,
+    "Stairs": true,
+    "StairsMode": "New",
+    "StairsBoost": 2.0,
+    "Slabs": true,
+    "SlabsMode": "New",
+    "SlabsBoost": 2.0,
+    "Ice": false,
+    "IceBoost": 2.0,
+    "Snow": true,
+    "SnowBoost": 1.87,
+    "SnowPort": true,
+    "Wall": true,
+    "WallMode": "New",
+    "WallBoost": 2.0,
+    "HeadBlock": true,
+    "HeadBlockBoost": 1.87,
+    "Slime": true,
+    "AirStrafe": false,
+    "NoHurt": true,
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "BugUp": {
+    "Mode": "TeleportBack",
+    "MaxFallDistance": 27,
+    "MaxDistanceToSetback": 1.78,
+    "Indicator": true,
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "CameraClip": {
+    "Hide": false
+  },
+  "Chams": {
+    "Targets": false,
+    "Chests": false,
+    "Items": false,
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "ChestAura": {
+    "Chest": false,
+    "EnderChest": false,
+    "Range": 5.0,
+    "Delay": 100,
+    "ThroughWalls": true,
+    "ThroughWallsRange": 3.0,
+    "MinDistanceFromOpponent": 10.0,
+    "VisualSwing": true,
+    "IgnoreLootedChests": true,
+    "DetectChestRefill": true,
+    "Rotations": true,
+    "SilentRotation": true,
+    "SimulateShortStop": false,
+    "StartFirstRotationSlow": true,
+    "MaxHorizontalSpeed": 180.0,
+    "MinHorizontalSpeed": 180.0,
+    "MaxVerticalSpeed": 180.0,
+    "MinVerticalSpeed": 180.0,
+    "Strafe": "Off",
+    "SmootherMode": "Relative",
+    "KeepRotationTicks": 5,
+    "AngleThresholdUntilReset": 5.0,
+    "OpenInfo": "Off",
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "ChestStealer": {
+    "SmartDelay": false,
+    "DelayMultiplier": 50,
+    "SmartOrder": true,
+    "MaxDelay": 42,
+    "MinDelay": 0,
+    "StartDelay": 0,
+    "CloseDelay": 51,
+    "NoMoveClicks": false,
+    "NoClicksInAir": true,
+    "NoClicksOnGround": true,
+    "ChestTitle": false,
+    "RandomSlot": true,
+    "ProgressBar": true,
+    "SilentGUI": false,
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "CivBreak": {
+    "Range": 5.0,
+    "VisualSwing": true,
+    "Rotations": true,
+    "Strafe": "Off",
+    "SmootherMode": "Relative",
+    "SimulateShortStop": false,
+    "StartFirstRotationSlow": true,
+    "MaxHorizontalSpeed": 180.0,
+    "MinHorizontalSpeed": 180.0,
+    "MaxVerticalSpeed": 180.0,
+    "MinVerticalSpeed": 180.0,
+    "AngleThresholdUntilReset": 5.0,
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "ClickGUI": {
+    "Style": "LiquidBounce",
+    "Scale": 0.53200066,
+    "MaxElements": 15,
+    "FadeSpeed": 1.0,
+    "Scrolls": false,
+    "SpacedModules": false,
+    "PanelsForcedInBoundaries": true,
+    "Rainbow": false,
+    "R": 0,
+    "G": 160,
+    "B": 255,
+    "Hide": false
+  },
+  "Clip": {
+    "Mode": "Teleport",
+    "Horizontal": 0.0,
+    "Vertical": 0.0,
+    "Hide": false
+  },
+  "ComponentOnHover": {
+    "Hide": false
+  },
+  "ConsoleSpammer": {
+    "Mode": "Payload",
+    "Delay": 0,
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "Criticals": {
+    "Mode": "Packet",
+    "Delay": 0,
+    "HurtTime": 10,
+    "Custom-Y": 0.2,
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "Damage": {
+    "Mode": "NCP",
+    "Damage": 1,
+    "Hide": false
+  },
+  "Derp": {
+    "Headless": false,
+    "Spinny": false,
+    "Increment": 50.0,
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "Disabler": {
+    "Mode": "Hypixel",
+    "Debug": false,
+    "ChestStealer": false,
+    "PlaceBlock": false,
+    "C0B": true,
+    "VulcanSprint": true,
+    "VulcanSprint2": false,
+    "VulcanScaffold": false,
+    "VulcanAutoBlockOLD": true,
+    "void1": false,
+    "void2": false,
+    "ModifyAbilities": true,
+    "SpamAbilities": false,
+    "NoModuleCheck": true,
+    "MoveFix": false,
+    "MoveOnly": false,
+    "NoMovePacket": false,
+    "HotbarChange": true,
+    "BlockTeams": false,
+    "BlockInvalidPosition": true,
+    "NoC03Packet": true,
+    "Timer1": true,
+    "Timer2": false,
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "ESP": {
+    "Mode": "Outline",
+    "Outline-Width": 3.0,
+    "WireFrame-Width": 2.0,
+    "Glow-Renderscale": 1.0,
+    "Glow-Radius": 4,
+    "Glow-Fade": 10,
+    "Glow-Target-Alpha": 0.0,
+    "Rainbow": false,
+    "R": 255,
+    "G": 255,
+    "B": 255,
+    "MaxRenderDistance": 100,
+    "OnLook": false,
+    "MaxAngleDifference": 5.0,
+    "ThruBlocks": true,
+    "Team": false,
+    "Bots": true,
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "Eagle": {
+    "SneakDelay": 0,
+    "OnlyWhenLookingDown": false,
+    "LookDownThreshold": 45.0,
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "FakeLag": {
+    "Delay": 550,
+    "RecoilTime": 750,
+    "AllowedDistanceToPlayers": 3.5,
+    "Hide": false
+  },
+  "FastBow": {
+    "Packets": 20,
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "FastBreak": {
+    "BreakDamage": 0.8,
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "FastClimb": {
+    "Mode": "Vanilla",
+    "Speed": 0.2872,
+    "ClimbSpeed": 1.0,
+    "TickDelay": 10,
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "FastPlace": {
+    "Speed": 0,
+    "OnlyBlocks": true,
+    "OnlyWhenFacingBlocks": true,
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "FastStairs": {
+    "Mode": "Step",
+    "LongJump": false,
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "FastUse": {
+    "Mode": "Custom",
+    "CustomDelay": 0,
+    "CustomSpeed": 34,
+    "CustomTimer": 0.1,
+    "NoMove": true,
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "FlagCheck": {
+    "ResetCounterTicks": 600,
+    "RubberbandCheck": false,
+    "RubberBandThreshold": 5.0,
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "Fly": {
+    "Mode": "Vanilla",
+    "VanillaSpeed": 2.99,
+    "VanillaKickBypass": true,
+    "NCPMotion": 0.0,
+    "AAC1.9.10-Speed": 0.3,
+    "AAC3.0.5-Fast": true,
+    "AAC3.3.12-Motion": 10.0,
+    "AAC3.3.13-Motion": 10.0,
+    "Hypixel-Boost": true,
+    "Hypixel-BoostDelay": 1200,
+    "Hypixel-BoostTimer": 1.0,
+    "NeruxVace-Ticks": 6,
+    "Damage": false,
+    "TimerSlow": false,
+    "BoostTicks": 2,
+    "BoostMotion": 1.0,
+    "YBoost": 0.42,
+    "Stable": false,
+    "TimerSlowed": true,
+    "BoostSpeed": 6.0,
+    "ExtraSpeed": 1.0,
+    "StopOnLanding": true,
+    "StopOnNoMove": false,
+    "Debug": false,
+    "Mark": true,
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "ForceUnicodeChat": {
+    "Hide": false
+  },
+  "FreeCam": {
+    "Speed": 0.47,
+    "Fly": true,
+    "NoClip": false,
+    "RecordMotion": false,
+    "C03Spoof": false,
+    "Hide": false
+  },
+  "Freeze": {
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "Fucker": {
+    "Hypixel": false,
+    "Block": 26,
+    "ThroughWalls": "None",
+    "Range": 4.03,
+    "Action": "Destroy",
+    "Surroundings": false,
+    "Instant": false,
+    "SwitchDelay": 87,
+    "Swing": true,
+    "NoHit": false,
+    "Rotations": true,
+    "Strafe": "Silent",
+    "SmootherMode": "Linear",
+    "SimulateShortStop": false,
+    "StartFirstRotationSlow": false,
+    "MaxHorizontalSpeed": 180.0,
+    "MinHorizontalSpeed": 180.0,
+    "MaxVerticalSpeed": 180.0,
+    "MinVerticalSpeed": 180.0,
+    "AngleThresholdUntilReset": 5.0,
+    "BlockProgress": false,
+    "Scale": 2.0,
+    "Font": {
+      "fontName": "Roboto Medium",
+      "fontSize": 40
+    },
+    "Shadow": true,
+    "R": 200,
+    "G": 100,
+    "B": 0,
+    "IgnoreOwnBed": false,
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "Fullbright": {
+    "Mode": "Gamma",
+    "Hide": false
+  },
+  "GameDetector": {
+    "GameModeCheck": true,
+    "CapabilitiesCheck": true,
+    "TabListCheck": true,
+    "TeamsCheck": true,
+    "InvisibilityCheck": true,
+    "CompassCheck": false,
+    "CheckAllSlots": true,
+    "Slot": 1,
+    "EntityCheck": false,
+    "ScoreboardCheck": false,
+    "Hide": false
+  },
+  "Ghost": {
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "GhostHand": {
+    "Block": 54,
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "GodMode": {
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "HUD": {
+    "BlackHotbar": true,
+    "InventoryParticle": false,
+    "Blur": false,
+    "FontChat": false
+  },
+  "HighJump": {
+    "Mode": "Damage",
+    "Height": 4.08,
+    "OnlyGlassPane": false,
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "HitBox": {
+    "TargetPlayers": true,
+    "PlayerSize": 0.4,
+    "FriendSize": 0.4,
+    "TeamMateSize": 0.4,
+    "BotSize": 0.4,
+    "TargetMobs": false,
+    "MobSize": 0.4,
+    "TargetAnimals": false,
+    "AnimalSize": 0.4,
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "IceSpeed": {
+    "Mode": "NCP",
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "Ignite": {
+    "Lighter": true,
+    "Lava": true,
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "InventoryCleaner": {
+    "Drop": true,
+    "Sort": true,
+    "MaxDelay": 61,
+    "MinDelay": 39,
+    "MinItemAge": 0,
+    "LimitStackCounts": true,
+    "MaxBlockStacks": 5,
+    "MaxFoodStacks": 5,
+    "MaxThrowableStacks": 5,
+    "MergeStacks": true,
+    "RepairEquipment": false,
+    "InvOpen": true,
+    "SimulateInventory": false,
+    "AutoClose": false,
+    "StartDelay": 22,
+    "CloseDelay": 100,
+    "NoMoveClicks": false,
+    "NoClicksInAir": true,
+    "NoClicksOnGround": true,
+    "RandomSlot": true,
+    "IgnoreVehicles": false,
+    "OnlyGoodPotions": false,
+    "HighlightUseful": false,
+    "Slot1": "Sword",
+    "Slot2": "Bow",
+    "Slot3": "Pickaxe",
+    "Slot4": "Axe",
+    "Slot5": "Shovel",
+    "Slot6": "Food",
+    "Slot7": "Throwable",
+    "Slot8": "Block",
+    "Slot9": "Block",
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "InventoryMove": {
+    "NotInChests": false,
+    "AACAdditionPro": false,
+    "Intave": false,
+    "NoMoveClicks": false,
+    "NoClicksInAir": true,
+    "NoClicksOnGround": true,
+    "Undetectable": false,
+    "SilentlyCloseAndReopen": true,
+    "ReopenOnClick": true,
+    "Hide": false
+  },
+  "ItemESP": {
+    "Mode": "Box",
+    "Glow-Renderscale": 1.0,
+    "Glow-Radius": 4,
+    "Glow-Fade": 10,
+    "Glow-Target-Alpha": 0.0,
+    "Rainbow": true,
+    "R": 0,
+    "G": 255,
+    "B": 0,
+    "MaxRenderDistance": 50,
+    "OnLook": false,
+    "MaxAngleDifference": 90.0,
+    "ThruBlocks": true,
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "ItemPhysics": {
+    "Realistic": false,
+    "Weight": 0.5,
+    "RotationSpeed": 1.0,
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "ItemTeleport": {
+    "Mode": "New",
+    "ResetAfterTP": true,
+    "Button": "Middle",
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "KeepAlive": {
+    "Mode": "/heal",
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "KeepContainer": {
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "KeepSprint": {
+    "MotionAfterAttackOnGround": 1.0,
+    "MotionAfterAttackInAir": 1.0,
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "KeyPearl": {
+    "DelayedSlotSwitch": true,
+    "Mouse": false,
+    "MouseButton": "Middle",
+    "KeyName": "X",
+    "NoEnderPearlsMessage": true,
+    "Hide": false
+  },
+  "Kick": {
+    "Mode": "Quit",
+    "Hide": false
+  },
+  "KillAura": {
+    "SimulateCooldown": false,
+    "SimulateDoubleClicking": false,
+    "MaxCPS": 13,
+    "MinCPS": 9,
+    "HurtTime": 10,
+    "ClickOnly": false,
+    "Range": 3.0,
+    "ScanRange": 3.0,
+    "ThroughWallsRange": 2.99,
+    "RangeSprintReduction": 0.0,
+    "Priority": "Distance",
+    "TargetMode": "Switch",
+    "LimitedMultiTargets": 8,
+    "MaxSwitchFOV": 180.0,
+    "SwitchDelay": 175,
+    "Swing": true,
+    "KeepSprint": true,
+    "AutoF5": false,
+    "OnScaffold": false,
+    "OnDestroyBlock": false,
+    "AutoBlock": "Fake",
+    "ReleaseAutoBlock": true,
+    "IgnoreTickRule": false,
+    "BlockRate": 25,
+    "UpdatedNCPAutoBlock": false,
+    "SwitchStartBlock": false,
+    "InteractAutoBlock": true,
+    "SmartAutoBlock": false,
+    "ForceBlockWhenStill": false,
+    "CheckEnemyWeapon": false,
+    "BlockRange": 2.83,
+    "MaxOwnHurtTime": 10,
+    "MaxOpponentDirectionDiff": 60.0,
+    "MaxOpponentSwingProgress": 1,
+    "StartFirstRotationSlow": false,
+    "MaxHorizontalSpeed": 167.11,
+    "MinHorizontalSpeed": 139.72,
+    "MaxVerticalSpeed": 180.0,
+    "MinVerticalSpeed": 180.0,
+    "RayCast": true,
+    "RayCastIgnored": false,
+    "LivingRayCast": true,
+    "UseHitDelay": false,
+    "HitDelayTicks": 1,
+    "KeepRotationTicks": 3,
+    "AngleThresholdUntilReset": 20.25,
+    "SilentRotation": true,
+    "Strafe": "Strict",
+    "SmootherMode": "Relative",
+    "SimulateShortStop": false,
+    "RandomCenter": false,
+    "GaussianOffset": false,
+    "Outborder": false,
+    "FOV": 180.0,
+    "PredictClientMovement": 0,
+    "PredictEnemyPosition": 0.1,
+    "FailSwing": false,
+    "RespectMissCooldown": true,
+    "SwingOnlyInAir": true,
+    "MaxRotationDifferenceToSwing": 180.0,
+    "SwingWhenTicksLate": false,
+    "TicksLateToSwing": 4,
+    "SimulateClosingInventory": false,
+    "NoInvAttack": false,
+    "NoInvDelay": 0,
+    "NoConsumeAttack": "NoHits",
+    "Mark": "Platform",
+    "Outline": true,
+    "FakeSharp": false,
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "LadderJump": {
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "LiquidChat": {
+    "JWT": false,
+    "Hide": false
+  },
+  "LiquidWalk": {
+    "Mode": "AACFly",
+    "AACFlyMotion": 1.0,
+    "NoJump": true,
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "Liquids": {
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "LongJump": {
+    "Mode": "NCP",
+    "NCPBoost": 4.25,
+    "AutoJump": false,
+    "AutoDisable": true,
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "MidClick": {
+    "Hide": false
+  },
+  "MoreCarry": {
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "MultiActions": {
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "NameProtect": {
+    "AllPlayers": false,
+    "SkinProtect": false,
+    "FakeName": "\u0026c\u0026kll\u00266\u0026lPrology\u0026c\u0026kll",
+    "RandomNames": false,
+    "RandomNameLength": false,
+    "NameLength": 6,
+    "MinNameLength": 6,
+    "MaxNameLength": 14,
+    "Hide": false
+  },
+  "NameTags": {
+    "Health": true,
+    "HealthFromScoreboard": false,
+    "Absorption": false,
+    "RoundedHealth": true,
+    "HealthPrefix": false,
+    "HealthPrefixText": "",
+    "HealthSuffix": true,
+    "HealthSuffixText": " HP",
+    "Ping": false,
+    "Bar": false,
+    "Distance": false,
+    "Armor": true,
+    "Bots": true,
+    "Potions": true,
+    "ClearNames": false,
+    "Font": {
+      "fontName": "Roboto Medium",
+      "fontSize": 40
+    },
+    "Scale": 1.0,
+    "Shadow": true,
+    "Background": true,
+    "Background-R": 255,
+    "Background-G": 179,
+    "Background-B": 72,
+    "Background-Alpha": 100,
+    "Border": true,
+    "Border-R": 255,
+    "Border-G": 179,
+    "Border-B": 72,
+    "Border-Alpha": 100,
+    "MaxRenderDistance": 100,
+    "OnLook": false,
+    "MaxAngleDifference": 5.0,
+    "ThruBlocks": true,
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "NoAchievement": {
+    "Hide": false
+  },
+  "NoBob": {
+    "Hide": false
+  },
+  "NoBooks": {
+    "Hide": false
+  },
+  "NoClip": {
+    "Speed": 0.5,
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "NoFOV": {
+    "FOV": 1.0,
+    "Hide": false
+  },
+  "NoFall": {
+    "Mode": "MLG",
+    "MinMLGHeight": 5.0,
+    "RetrieveDelay": 100,
+    "CheckFallDistance": true,
+    "MinFallDistance": 2.5,
+    "MaxFallDistance": 20.0,
+    "AutoOff": false,
+    "SimulationDebug": true,
+    "FakePlayer": true,
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "NoFluid": {
+    "Water": true,
+    "Lava": true,
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "NoFriends": {
+    "Hide": false
+  },
+  "NoHurtCam": {
+    "Hide": false
+  },
+  "NoJumpDelay": {
+    "Hide": false
+  },
+  "NoPitchLimit": {
+    "ServerSide": false,
+    "Hide": false
+  },
+  "NoRotateSet": {
+    "IgnoreOnSpawn": true,
+    "AffectRotation": true,
+    "Strafe": "Silent",
+    "SmootherMode": "Relative",
+    "SimulateShortStop": true,
+    "StartFirstRotationSlow": false,
+    "MaxHorizontalSpeed": 83.5,
+    "MinHorizontalSpeed": 47.7,
+    "MaxVerticalSpeed": 75.71,
+    "MinVerticalSpeed": 44.58,
+    "AngleThresholdUntilReset": 5.0,
+    "Hide": false
+  },
+  "NoScoreboard": {
+    "Hide": false
+  },
+  "NoSlotSet": {
+    "Hide": false
+  },
+  "NoSlow": {
+    "SwordMode": "None",
+    "ReblinkTicks": 10,
+    "BlockForwardMultiplier": 1.0,
+    "BlockStrafeMultiplier": 1.0,
+    "ConsumeMode": "None",
+    "ConsumeForwardMultiplier": 1.0,
+    "ConsumeStrafeMultiplier": 1.0,
+    "BowMode": "None",
+    "BowForwardMultiplier": 1.0,
+    "BowStrafeMultiplier": 1.0,
+    "Soulsand": true,
+    "LiquidPush": true,
+    "Hide": false
+  },
+  "NoSlowBreak": {
+    "Air": true,
+    "Water": false,
+    "Hide": false
+  },
+  "NoSwing": {
+    "ServerSide": true,
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "NoWeb": {
+    "Mode": "None",
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "Nuker": {
+    "Radius": 5.2,
+    "ThroughWalls": false,
+    "Priority": "Distance",
+    "Rotations": true,
+    "Strafe": "Off",
+    "Layer": false,
+    "HitDelay": 4,
+    "Nuke": 1,
+    "NukeDelay": 1,
+    "Hide": false
+  },
+  "OverrideRaycast": {
+    "AlwaysActive": true,
+    "Hide": false
+  },
+  "PacketDebugger": {
+    "Notify": "Chat",
+    "PacketType": "Both",
+    "Delay": 100,
+    "Hide": false
+  },
+  "Parkour": {
+    "Hide": false
+  },
+  "PerfectHorseJump": {
+    "Hide": false
+  },
+  "Phase": {
+    "Mode": "Mineplex",
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "PingSpoof": {
+    "PingOnly": true,
+    "SpoofDelay": 500,
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "PingSpoof2": {
+    "PingOnly": false,
+    "C00": true,
+    "C0F": true,
+    "C0B": true,
+    "C13": true,
+    "C16": true,
+    "C17": true,
+    "SpoofDelay": 2308,
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "Plugins": {
+    "Hide": false
+  },
+  "PortalMenu": {
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "PotionSaver": {
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "PotionSpoof": {
+    "PotionLevel": 2,
+    "Speed": false,
+    "Slowness": false,
+    "Haste": false,
+    "MiningFatigue": false,
+    "Blindness": false,
+    "Strength": false,
+    "JumpBoost": false,
+    "Weakness": false,
+    "Regeneration": false,
+    "Wither": false,
+    "Resistance": false,
+    "FireResistance": false,
+    "Absorption": false,
+    "HealthBoost": false,
+    "Poison": false,
+    "Saturation": false,
+    "WaterBreathing": false,
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "Projectiles": {
+    "MaxTrailSize": 20,
+    "Color": "Custom",
+    "R": 0,
+    "G": 160,
+    "B": 255,
+    "Hide": false
+  },
+  "ProphuntESP": {
+    "Mode": "OtherBox",
+    "Glow-Renderscale": 1.0,
+    "Glow-Radius": 4,
+    "Glow-Fade": 10,
+    "Glow-Target-Alpha": 0.0,
+    "Rainbow": false,
+    "R": 0,
+    "G": 90,
+    "B": 255,
+    "MaxRenderDistance": 50,
+    "OnLook": false,
+    "MaxAngleDifference": 90.0,
+    "ThruBlocks": true,
+    "Hide": false
+  },
+  "Reach": {
+    "CombatReach": 3.0,
+    "BuildReach": 5.0,
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "Refill": {
+    "Delay": 100,
+    "MinItemAge": 0,
+    "Mode": "Swap",
+    "InvOpen": false,
+    "SimulateInventory": false,
+    "NoMoveClicks": false,
+    "NoClicksInAir": true,
+    "NoClicksOnGround": true,
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "Regen": {
+    "Mode": "Vanilla",
+    "Speed": 100,
+    "Delay": 0,
+    "Health": 18,
+    "Food": 18,
+    "NoAir": false,
+    "PotionEffect": false,
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "ResourcePackSpoof": {
+    "Hide": false
+  },
+  "ReverseStep": {
+    "Motion": 1.0,
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "Rotations": {
+    "Realistic": true,
+    "Body": true,
+    "ExperimentalLinearCurveRotation": false,
+    "Hide": false
+  },
+  "SafeWalk": {
+    "AirSafe": false,
+    "MaxFallDistance": 5,
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "Scaffold": {
+    "TowerMode": "None",
+    "StopWhenBlockAbove": true,
+    "TowerOnJump": true,
+    "TowerMatrix": false,
+    "TowerPlaceTiming": "Pre",
+    "JumpMotion": 0.42,
+    "JumpDelay": 0,
+    "ConstantMotion": 0.42,
+    "ConstantMotionJumpGround": 0.76,
+    "JumpPacket": true,
+    "TriggerMotion": 0.1,
+    "DragMotion": 1.0,
+    "TeleportHeight": 1.15,
+    "TeleportDelay": 0,
+    "TeleportGround": true,
+    "TeleportNoMotion": false,
+    "ScaffoldMode": "Telly",
+    "OmniDirectionalExpand": false,
+    "ExpandLength": 3,
+    "PlaceDelay": false,
+    "MaxDelay": 64,
+    "MinDelay": 50,
+    "DoExtraClicks": false,
+    "SimulateDoubleClicking": true,
+    "ExtraClickMaxCPS": 14,
+    "ExtraClickMinCPS": 6,
+    "PlacementAttempt": "Independent",
+    "AutoBlock": "Spoof",
+    "SortByHighestAmount": true,
+    "EarlySwitch": false,
+    "SlotAmountBeforeSwitch": 3,
+    "AutoF5": false,
+    "Sprint": true,
+    "Swing": true,
+    "Down": false,
+    "TicksUntilRotation": 5,
+    "WaitForRotations": false,
+    "UseStaticRotation": false,
+    "GodBridgePitch": 73.5,
+    "MinGodBridgePitch": 75.0,
+    "MaxGodBridgePitch": 80.0,
+    "AutoJump": false,
+    "JumpAutomatically": false,
+    "MaxBlocksToJump": 6,
+    "MinBlocksToJump": 6,
+    "StartHorizontally": true,
+    "MaxHorizontalPlacements": 9,
+    "MinHorizontalPlacements": 9,
+    "MaxVerticalPlacements": 8,
+    "MinVerticalPlacements": 7,
+    "MaxJumpTicks": 0,
+    "MinJumpTicks": 0,
+    "AllowClutching": false,
+    "HorizontalClutchBlocks": 3,
+    "VerticalClutchBlocks": 2,
+    "Eagle": "Off",
+    "AdjustedSneakSpeed": true,
+    "EagleSpeed": 1.0,
+    "EagleSprint": true,
+    "BlocksToEagle": 3,
+    "EagleEdgeDistance": 0.05,
+    "Rotations": "Stabilized",
+    "SmootherMode": "Linear",
+    "SilentRotation": true,
+    "SimulateShortStop": false,
+    "Strafe": true,
+    "KeepRotation": true,
+    "KeepTicks": 5,
+    "SearchMode": "Area",
+    "MinDist": 0.0,
+    "StartFirstRotationSlow": false,
+    "MaxHorizontalSpeed": 158.52,
+    "MinHorizontalSpeed": 138.47,
+    "MaxVerticalSpeed": 158.52,
+    "MinVerticalSpeed": 138.69,
+    "AngleThresholdUntilReset": 180.0,
+    "Zitter": "Off",
+    "ZitterSpeed": 0.13,
+    "ZitterStrength": 0.072,
+    "MaxZitterTicks": 3,
+    "MinZitterTicks": 2,
+    "UseSneakMidAir": false,
+    "Timer": 1.0,
+    "SpeedModifier": 1.0,
+    "SpeedLimiter": false,
+    "SpeedLimit": 1.0,
+    "Slow": false,
+    "SlowOnlyGround": false,
+    "SlowSpeed": 0.8,
+    "SameY": false,
+    "JumpOnUserInput": false,
+    "SafeWalk": false,
+    "AirSafe": false,
+    "Mark": false,
+    "TrackCPS": true,
+    "SafetyLines": false,
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "ServerCrasher": {
+    "Mode": "Netty2",
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "SkinDerp": {
+    "Delay": 0,
+    "Hat": true,
+    "Jacket": true,
+    "LeftPants": true,
+    "RightPants": true,
+    "LeftSleeve": true,
+    "RightSleeve": true,
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "SlimeJump": {
+    "Motion": 2.5,
+    "Mode": "Add",
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "Sneak": {
+    "Mode": "Legit",
+    "StopMove": false,
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "Spammer": {
+    "MaxDelay": 5000,
+    "MinDelay": 4999,
+    "Message": ".t antikb",
+    "Custom": true,
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "Speed": {
+    "Mode": "VulcanHop",
+    "CustomSpeed": 0.6,
+    "CustomY": 0.4,
+    "CustomTimer": 1.2,
+    "CustomStrafe": true,
+    "CustomResetXZ": true,
+    "CustomResetY": true,
+    "CubeCraft-PortLength": 1.0,
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "Sprint": {
+    "Mode": "Legit",
+    "OnlyOnSprintPress": false,
+    "AlwaysCorrectSprint": true,
+    "AllDirections": false,
+    "JumpDirections": false,
+    "AllDirectionsLimitSpeed": 1.0,
+    "AllDirectionsLimitSpeedOnlyGround": false,
+    "Blindness": false,
+    "UsingItem": false,
+    "Inventory": false,
+    "Food": true,
+    "CheckServerSide": true,
+    "CheckServerSideOnlyGround": false,
+    "NoPackets": false,
+    "Hide": false
+  },
+  "StaffDetector": {
+    "StaffMode": "BlocksMC",
+    "TAB": true,
+    "Packet": true,
+    "AutoLeave": "Off",
+    "StaffSpectator": false,
+    "OtherSpectator": false,
+    "InGame": true,
+    "Warn": "Chat",
+    "Hide": false
+  },
+  "Step": {
+    "Mode": "Jump",
+    "Height": 1.0,
+    "JumpHeight": 0.42,
+    "Delay": 0,
+    "Hide": false
+  },
+  "StorageESP": {
+    "Mode": "Outline",
+    "Glow-Renderscale": 1.0,
+    "Glow-Radius": 4,
+    "Glow-Fade": 10,
+    "Glow-Target-Alpha": 0.0,
+    "CustomColor": false,
+    "R": 255,
+    "G": 179,
+    "B": 72,
+    "MaxRenderDistance": 100,
+    "OnLook": false,
+    "MaxAngleDifference": 90.0,
+    "ThruBlocks": true,
+    "Chest": true,
+    "EnderChest": true,
+    "Furnace": true,
+    "Dispenser": true,
+    "Hopper": true,
+    "EnchantmentTable": false,
+    "BrewingStand": false,
+    "Sign": false,
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "Strafe": {
+    "Strength": 0.18,
+    "NoMoveStop": false,
+    "OnGroundStrafe": true,
+    "AllDirectionsJump": true,
+    "Hide": false
+  },
+  "SuperKnockback": {
+    "Delay": 0,
+    "HurtTime": 10,
+    "Mode": "SneakPacket",
+    "MaxTicksUntilBlock": 1,
+    "MinTicksUntilBlock": 0,
+    "ReSprintMaxTicks": 2,
+    "ReSprintMinTicks": 1,
+    "TargetDistance": 3,
+    "PressBackTicks": 1,
+    "ReleaseBackTicks": 2,
+    "OnlyGround": false,
+    "OnlyMove": true,
+    "OnlyMoveForward": true,
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "TNTBlock": {
+    "Fuse": 10,
+    "Range": 9.0,
+    "AutoSword": true,
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "TNTESP": {
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "TNTTimer": {
+    "Scale": 3.0,
+    "Font": {
+      "fontName": "Roboto Medium",
+      "fontSize": 40
+    },
+    "Shadow": true,
+    "R": 255,
+    "G": 255,
+    "B": 255,
+    "MaxRenderDistance": 100,
+    "OnLook": false,
+    "MaxAngleDifference": 5.0,
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "Teams": {
+    "ScoreboardTeam": true,
+    "Color": true,
+    "GommeSW": false,
+    "Hide": false
+  },
+  "Teleport": {
+    "IgnoreNoCollision": true,
+    "Mode": "Tp",
+    "Button": "Middle",
+    "NeedSneak": true,
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "TeleportHit": {
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "Timer": {
+    "Mode": "OnMove",
+    "Speed": 1.0,
+    "Hide": false
+  },
+  "TimerRange": {
+    "TimerMode": "Normal",
+    "Ticks": 5,
+    "TimerBoost": 2.13,
+    "MinBoostDelay": 0.17,
+    "MaxBoostDelay": 0.17,
+    "TimerCharged": 0.15,
+    "MinChargedDelay": 0.1,
+    "MaxChargedDelay": 0.1,
+    "Range": 3.3,
+    "CooldownTick": 1,
+    "MinRange": 1.0,
+    "MaxRange": 5.0,
+    "ScanRange": 8.0,
+    "MinTickDelay": 50,
+    "MaxTickDelay": 100,
+    "Blink": true,
+    "PredictClientMovement": 1,
+    "PredictEnemyPosition": 1.5,
+    "MaxAngleDifference": 5.0,
+    "Mark": "Off",
+    "Outline": false,
+    "OnWeb": false,
+    "OnWater": false,
+    "ResetOnLagback": false,
+    "ResetOnKnockback": false,
+    "ChatDebug": false,
+    "NotificationDebug": false,
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "Tracers": {
+    "Color": "Rainbow",
+    "R": 0,
+    "G": 160,
+    "B": 255,
+    "Thickness": 1.0,
+    "MaxRenderDistance": 92,
+    "Bots": true,
+    "Teams": false,
+    "OnLook": false,
+    "MaxAngleDifference": 90.0,
+    "ThruBlocks": true,
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "TrueSight": {
+    "Barriers": true,
+    "Entities": true,
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "VehicleOneHit": {
+    "Hide": false
+  },
+  "Velocity": {
+    "Mode": "Simple",
+    "Horizontal": 0.0,
+    "Vertical": 0.0,
+    "ReverseStrength": 1.0,
+    "SmoothReverseStrength": 0.05,
+    "onLook": false,
+    "Range": 3.0,
+    "MaxAngleDifference": 45.0,
+    "AACPushXZReducer": 2.0,
+    "AACPushYReducer": true,
+    "AACv4MotionReducer": 0.62,
+    "DisableInAir": true,
+    "Chance": 62,
+    "JumpCooldownMode": "Ticks",
+    "TicksUntilJump": 0,
+    "ReceivedHitsUntilJump": 5,
+    "MaxHurtTime": 3,
+    "MinHurtTime": 1,
+    "SpoofDelay": 500,
+    "IgnoreExplosion": false,
+    "LimitMaxMotion": false,
+    "MaxXZMotion": 0.4,
+    "MaxYMotion": 0.36,
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "WallClimb": {
+    "Mode": "AAC3.3.12",
+    "ClipMode": "Fast",
+    "CheckerClimbMotion": 0.67,
+    "OnlyInGame": true,
+    "Hide": false
+  },
+  "WaterSpeed": {
+    "Speed": 1.48,
+    "Hide": false
+  },
+  "XRay": {
+    "Hide": false
+  },
+  "Zoot": {
+    "BadEffects": true,
+    "Fire": true,
+    "NoAir": false,
+    "OnlyInGame": true,
+    "Hide": false
+  }
+}

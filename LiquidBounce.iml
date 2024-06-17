@@ -13,15 +13,6 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/.gradle/minecraft/forgeBin-1.8.9-11.15.1.2318-1.8.9-PROJECT(LiquidBounce).jar!/"/>
-        </CLASSES>
-        <JAVADOC/>
-        <SOURCES/>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
           <root url="jar://C:/Users/kubak/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.7.11-SNAPSHOT/7a670207bdb97db418118ad1e9bb42424ff3776d/mixin-0.7.11-SNAPSHOT.jar!/"/>
         </CLASSES>
         <JAVADOC>
@@ -1043,6 +1034,15 @@
       <library>
         <CLASSES>
           <root url="jar://C:/Users/kubak/.gradle/caches/modules-2/files-2.1/tv.twitch/twitch-external-platform/4.5/c3cde57891b935d41b6680a9c5e1502eeab76d86/twitch-external-platform-4.5-natives-windows-64.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES/>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/.gradle/minecraft/forgeBin-1.8.9-11.15.1.2318-1.8.9-PROJECT(LiquidBounce).jar!/"/>
         </CLASSES>
         <JAVADOC/>
         <SOURCES/>

@@ -7,7 +7,7 @@ package net.ccbluex.liquidbounce.features.module.modules.combat
 
 import net.ccbluex.liquidbounce.event.*
 import net.ccbluex.liquidbounce.features.module.Module
-import net.ccbluex.liquidbounce.features.module.ModuleCategory
+import net.ccbluex.liquidbounce.features.module.Category
 import net.ccbluex.liquidbounce.utils.MovementUtils.isMoving
 import net.ccbluex.liquidbounce.utils.PacketUtils.sendPacket
 import net.ccbluex.liquidbounce.utils.PacketUtils.sendPackets
@@ -24,10 +24,10 @@ import net.minecraft.network.play.client.C0BPacketEntityAction
 import net.minecraft.network.play.client.C0BPacketEntityAction.Action.*
 import kotlin.math.abs
 
-object SuperKnockback : Module("SuperKnockback", ModuleCategory.COMBAT) {
+object SuperKnockback : Module("SuperKnockback", Category.COMBAT, hideModule = false) {
 
-    private val delay by IntegerValue("Delay", 0, 0, 500)
-    private val hurtTime by IntegerValue("HurtTime", 10, 0, 10)
+    private val delay by IntegerValue("Delay", 0, 0..500)
+    private val hurtTime by IntegerValue("HurtTime", 10, 0..10)
 
     private val mode by ListValue("Mode", arrayOf("SprintTap", "SprintTap2", "WTap", "Old", "Silent", "Packet", "SneakPacket"), "Old")
     private val maxTicksUntilBlock: IntegerValue = object : IntegerValue("MaxTicksUntilBlock", 2, 0..5) {

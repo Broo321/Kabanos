@@ -10,10 +10,12 @@ import net.ccbluex.liquidbounce.event.EventTarget
 import net.ccbluex.liquidbounce.event.Render2DEvent
 import net.ccbluex.liquidbounce.event.Render3DEvent
 import net.ccbluex.liquidbounce.features.module.Module
-import net.ccbluex.liquidbounce.features.module.ModuleCategory
+import net.ccbluex.liquidbounce.features.module.Category
 import net.ccbluex.liquidbounce.features.module.modules.world.ChestAura.clickedTileEntities
 import net.ccbluex.liquidbounce.utils.ClientUtils.LOGGER
 import net.ccbluex.liquidbounce.utils.ClientUtils.disableFastRender
+import net.ccbluex.liquidbounce.utils.EntityUtils.isLookingOnEntities
+import net.ccbluex.liquidbounce.utils.RotationUtils
 import net.ccbluex.liquidbounce.utils.render.RenderUtils.draw2D
 import net.ccbluex.liquidbounce.utils.render.RenderUtils.drawBlockBox
 import net.ccbluex.liquidbounce.utils.render.RenderUtils.drawEntityBox
@@ -26,11 +28,12 @@ import net.ccbluex.liquidbounce.value.ListValue
 import net.minecraft.client.renderer.tileentity.TileEntityRendererDispatcher
 import net.minecraft.entity.item.EntityMinecartChest
 import net.minecraft.tileentity.*
+import net.minecraft.util.Vec3
 import org.lwjgl.opengl.GL11.*
 import java.awt.Color
 import kotlin.math.pow
 
-object StorageESP : Module("StorageESP", ModuleCategory.RENDER) {
+object StorageESP : Module("StorageESP", Category.RENDER) {
     private val mode by
         ListValue("Mode", arrayOf("Box", "OtherBox", "Outline", "Glow", "2D", "WireFrame"), "Outline")
 
@@ -49,6 +52,11 @@ object StorageESP : Module("StorageESP", ModuleCategory.RENDER) {
             maxRenderDistanceSq = value.toDouble().pow(2.0)
         }
     }
+
+    private val onLook by BoolValue("OnLook", false)
+    private val maxAngleDifference by FloatValue("MaxAngleDifference", 90f, 5.0f..90f) { onLook }
+
+    private val thruBlocks by BoolValue("ThruBlocks", true)
 
     private var maxRenderDistanceSq = 0.0
 
@@ -119,6 +127,13 @@ object StorageESP : Module("StorageESP", ModuleCategory.RENDER) {
                         if (tileEntity !is TileEntityEnchantmentTable)
                             continue
                     }
+
+                    if (onLook && !isLookingOnEntities(tileEntity, maxAngleDifference.toDouble()))
+                        continue
+
+                    if (!thruBlocks && !RotationUtils.isVisible(Vec3(tileEntityPos.x.toDouble(), tileEntityPos.y.toDouble(), tileEntityPos.z.toDouble())))
+                        continue
+
                     when (mode) {
                         "OtherBox", "Box" -> drawBlockBox(tileEntity.pos, color, mode != "OtherBox")
 
@@ -182,6 +197,12 @@ object StorageESP : Module("StorageESP", ModuleCategory.RENDER) {
 
                 if (distanceSquared <= maxRenderDistanceSq) {
                     if (entity is EntityMinecartChest) {
+                        if (onLook && !isLookingOnEntities(entity, maxAngleDifference.toDouble()))
+                            continue
+
+                        if (!thruBlocks && !RotationUtils.isVisible(Vec3(entity.posX, entity.posY, entity.posZ)))
+                            continue
+
                         when (mode) {
                             "OtherBox", "Box" -> drawEntityBox(entity, Color(0, 66, 255), mode != "OtherBox")
 
@@ -260,6 +281,12 @@ object StorageESP : Module("StorageESP", ModuleCategory.RENDER) {
                         )
 
                         if (distanceSquared <= maxRenderDistanceSq) {
+                            if (onLook && !isLookingOnEntities(entity, maxAngleDifference.toDouble()))
+                                continue
+
+                            if (!thruBlocks && !RotationUtils.isVisible(Vec3(entityPos.x.toDouble(), entityPos.y.toDouble(), entityPos.z.toDouble())))
+                                continue
+
                             TileEntityRendererDispatcher.instance.renderTileEntityAt(
                                 entity,
                                 entityPos.x - renderManager.renderPosX,

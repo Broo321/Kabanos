@@ -7,7 +7,7 @@ package net.ccbluex.liquidbounce.features.module.modules.combat
 
 import net.ccbluex.liquidbounce.event.*
 import net.ccbluex.liquidbounce.features.module.Module
-import net.ccbluex.liquidbounce.features.module.ModuleCategory
+import net.ccbluex.liquidbounce.features.module.Category
 import net.ccbluex.liquidbounce.features.module.modules.movement.Speed
 import net.ccbluex.liquidbounce.utils.EntityUtils.isLookingOnEntities
 import net.ccbluex.liquidbounce.utils.EntityUtils.isSelected
@@ -46,7 +46,7 @@ import kotlin.math.abs
 import kotlin.math.atan2
 import kotlin.math.sqrt
 
-object Velocity : Module("Velocity", ModuleCategory.COMBAT) {
+object Velocity : Module("Velocity", Category.COMBAT, hideModule = false) {
 
     /**
      * OPTIONS
@@ -111,6 +111,8 @@ object Velocity : Module("Velocity", ModuleCategory.COMBAT) {
     private val spoofDelay by IntegerValue("SpoofDelay", 500, 0..5000) { mode == "Delay" }
     var delayMode = false
 
+    private val ignoreExplosion by BoolValue("IgnoreExplosion", true)
+
     // TODO: Could this be useful in other modes? (Jump?)
     // Limits
     private val limitMaxMotionValue = BoolValue("LimitMaxMotion", false) { mode == "Simple" }
@@ -167,7 +169,7 @@ object Velocity : Module("Velocity", ModuleCategory.COMBAT) {
     fun onUpdate(event: UpdateEvent) {
         val thePlayer = mc.thePlayer ?: return
 
-        if (thePlayer.isInWater || thePlayer.isInLava || thePlayer.isInWeb)
+        if (thePlayer.isInWater || thePlayer.isInLava || thePlayer.isInWeb || thePlayer.isDead)
             return
 
         when (mode.lowercase()) {
@@ -181,43 +183,49 @@ object Velocity : Module("Velocity", ModuleCategory.COMBAT) {
             }
 
             "reverse" -> {
-                val nearbyEntity = getNearestEntityInRange() ?: return
+                val nearbyEntity = getNearestEntityInRange()
 
                 if (!hasReceivedVelocity)
                     return
 
-                if (!thePlayer.onGround) {
-                    if (onLook && !isLookingOnEntities(nearbyEntity, maxAngleDifference.toDouble())) {
-                        return
-                    }
+                if (nearbyEntity != null) {
+                    if (!thePlayer.onGround) {
+                        if (onLook && !isLookingOnEntities(nearbyEntity, maxAngleDifference.toDouble())) {
+                            return
+                        }
 
-                    speed *= reverseStrength
-                } else if (velocityTimer.hasTimePassed(80))
-                    hasReceivedVelocity = false
+                        speed *= reverseStrength
+                    } else if (velocityTimer.hasTimePassed(80))
+                        hasReceivedVelocity = false
+                }
             }
 
             "smoothreverse" -> {
-                val nearbyEntity = getNearestEntityInRange() ?: return
+                val nearbyEntity = getNearestEntityInRange()
 
-                if (!hasReceivedVelocity) {
-                    thePlayer.speedInAir = 0.02F
-                    return
-                }
-
-                if (thePlayer.hurtTime > 0)
-                    reverseHurt = true
-
-                if (!thePlayer.onGround) {
-                    if (onLook && !isLookingOnEntities(nearbyEntity, maxAngleDifference.toDouble())) {
+                if (hasReceivedVelocity) {
+                    if (nearbyEntity == null) {
                         thePlayer.speedInAir = 0.02F
-                        return
-                    }
+                        reverseHurt = false
+                    } else {
+                        if (onLook && !isLookingOnEntities(nearbyEntity, maxAngleDifference.toDouble())) {
+                            hasReceivedVelocity = false
+                            thePlayer.speedInAir = 0.02F
+                            reverseHurt = false
+                        } else {
+                            if (thePlayer.hurtTime > 0) {
+                                reverseHurt = true
+                            }
 
-                    if (reverseHurt)
-                        thePlayer.speedInAir = reverse2Strength
-                } else if (velocityTimer.hasTimePassed(80)) {
-                    hasReceivedVelocity = false
-                    reverseHurt = false
+                            if (!thePlayer.onGround) {
+                                thePlayer.speedInAir = if (reverseHurt) reverse2Strength else 0.02F
+                            } else if (velocityTimer.hasTimePassed(80)) {
+                                hasReceivedVelocity = false
+                                thePlayer.speedInAir = 0.02F
+                                reverseHurt = false
+                            }
+                        }
+                    }
                 }
             }
 
@@ -345,7 +353,7 @@ object Velocity : Module("Velocity", ModuleCategory.COMBAT) {
             return
 
         if ((packet is S12PacketEntityVelocity && thePlayer.entityId == packet.entityID && packet.motionY > 0 && (packet.motionX != 0 || packet.motionZ != 0))
-            || (packet is S27PacketExplosion && (thePlayer.motionY + packet.field_149153_g) > 0.0
+            || (!ignoreExplosion && packet is S27PacketExplosion && (thePlayer.motionY + packet.field_149153_g) > 0.0
                 && ((thePlayer.motionX + packet.field_149152_f) != 0.0 || (thePlayer.motionZ + packet.field_149159_h) != 0.0))) {
             velocityTimer.reset()
 

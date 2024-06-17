@@ -1,0 +1,128 @@
+---- Minecraft Crash Report ----
+// You're mean.
+
+Time: 17.06.24 20:06
+Description: Updating screen events
+
+java.util.ConcurrentModificationException
+	at java.util.LinkedList$ListItr.checkForComodification(LinkedList.java:966)
+	at java.util.LinkedList$ListItr.next(LinkedList.java:888)
+	at net.ccbluex.liquidbounce.features.module.modules.exploit.disablermodes.verus.VerusSemiDisabler.onDisable(VerusSemiDisabler.kt:24)
+	at net.ccbluex.liquidbounce.features.module.modules.exploit.Disabler.onDisable(Disabler.kt:162)
+	at net.ccbluex.liquidbounce.features.module.Module.setState(Module.kt:110)
+	at net.ccbluex.liquidbounce.features.module.Module.toggle(Module.kt:132)
+	at net.ccbluex.liquidbounce.ui.client.clickgui.elements.ModuleElement.mouseClicked(ModuleElement.kt:49)
+	at net.ccbluex.liquidbounce.ui.client.clickgui.Panel.mouseClicked(Panel.kt:149)
+	at net.ccbluex.liquidbounce.ui.client.clickgui.ClickGui.mouseClicked(ClickGui.kt:248)
+	at net.minecraft.client.gui.GuiScreen.handleMouseInput(GuiScreen.java:555)
+	at net.minecraft.client.gui.GuiScreen.handleInput(GuiScreen.java:524)
+	at net.minecraft.client.Minecraft.runTick(Minecraft.java:1674)
+	at net.minecraft.client.Minecraft.runGameLoop(Minecraft.java:1024)
+	at net.minecraft.client.Minecraft.run(Minecraft.java:349)
+	at net.minecraft.client.main.Main.main(SourceFile:124)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at net.minecraft.launchwrapper.Launch.launch(Launch.java:135)
+	at net.minecraft.launchwrapper.Launch.main(Launch.java:28)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at net.minecraftforge.gradle.GradleStartCommon.launch(GradleStartCommon.java:95)
+	at GradleStart.main(GradleStart.java:24)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Stacktrace:
+	at java.util.LinkedList$ListItr.checkForComodification(LinkedList.java:966)
+	at java.util.LinkedList$ListItr.next(LinkedList.java:888)
+	at net.ccbluex.liquidbounce.features.module.modules.exploit.disablermodes.verus.VerusSemiDisabler.onDisable(VerusSemiDisabler.kt:24)
+	at net.ccbluex.liquidbounce.features.module.modules.exploit.Disabler.onDisable(Disabler.kt:162)
+	at net.ccbluex.liquidbounce.features.module.Module.setState(Module.kt:110)
+	at net.ccbluex.liquidbounce.features.module.Module.toggle(Module.kt:132)
+	at net.ccbluex.liquidbounce.ui.client.clickgui.elements.ModuleElement.mouseClicked(ModuleElement.kt:49)
+	at net.ccbluex.liquidbounce.ui.client.clickgui.Panel.mouseClicked(Panel.kt:149)
+	at net.ccbluex.liquidbounce.ui.client.clickgui.ClickGui.mouseClicked(ClickGui.kt:248)
+	at net.minecraft.client.gui.GuiScreen.handleMouseInput(GuiScreen.java:555)
+	at net.minecraft.client.gui.GuiScreen.handleInput(GuiScreen.java:524)
+
+-- Affected screen --
+Details:
+	Screen name: net.ccbluex.liquidbounce.ui.client.clickgui.ClickGui
+
+-- Affected level --
+Details:
+	Level name: MpServer
+	All players: 5 total; [EntityPlayerSP['9B3st4H4dd0ck__3'/46950, l='MpServer', x=-1068,49, y=66,00, z=3475,42], EntityOtherPlayerMP['orzelek123'/746751, l='MpServer', x=-977,34, y=67,00, z=3538,79], EntityOtherPlayerMP['johnhy'/745836, l='MpServer', x=-1063,66, y=70,03, z=3509,63], EntityOtherPlayerMP['poiuyt223'/746365, l='MpServer', x=-974,83, y=65,00, z=3447,58], EntityOtherPlayerMP['Mikelo300'/748734, l='MpServer', x=-1024,89, y=66,00, z=3434,32]]
+	Chunk stats: MultiplayerChunkCache: 381, 381
+	Level seed: 0
+	Level generator: ID 00 - default, ver 1. Features enabled: false
+	Level generator options: 
+	Level spawn location: 0,00,128,00,0,00 - World: (0,128,0), Chunk: (at 0,8,0 in 0,0; contains blocks 0,0,0 to 15,255,15), Region: (0,0; contains chunks 0,0 to 31,31, blocks 0,0,0 to 511,255,511)
+	Level time: 174593115 game time, 5000 day time
+	Level dimension: 0
+	Level storage version: 0x00000 - Unknown?
+	Level weather: Rain time: 0 (now: false), thunder time: 0 (now: false)
+	Level game mode: Game mode: spectator (ID 3). Hardcore: false. Cheats: false
+	Forced entities: 50 total; [EntityOtherPlayerMP['orzelek123'/746751, l='MpServer', x=-977,34, y=67,00, z=3538,79], EntityArmorStand['§eKliknij'/748930, l='MpServer', x=-1071,84, y=66,69, z=3525,50], EntityVillager['Villager'/1417, l='MpServer', x=-1020,97, y=66,00, z=3429,47], EntityArmorStand['§eKliknij'/748929, l='MpServer', x=-1071,84, y=66,69, z=3475,50], EntityOtherPlayerMP['sigmabotplayer1'/748243, l='MpServer', x=-936,94, y=65,00, z=3475,00], EntityArmorStand['§7Prawy przycisk'/3088, l='MpServer', x=-1020,97, y=67,94, z=3429,47], EntityOtherPlayerMP['johnhy'/745836, l='MpServer', x=-1063,66, y=70,03, z=3509,63], EntityArmorStand['§a§lSKLEP'/3089, l='MpServer', x=-1020,97, y=68,16, z=3429,47], EntityVillager['Villager'/917, l='MpServer', x=-1070,50, y=66,00, z=3479,00], EntityOtherPlayerMP['poiuyt223'/746365, l='MpServer', x=-974,83, y=65,00, z=3447,58], EntityVillager['Villager'/919, l='MpServer', x=-1070,53, y=66,00, z=3472,00], EntityArmorStand['§f§7Mikelo300'/2000012717, l='MpServer', x=-1024,90, y=67,81, z=3434,33], EntityArmorStand['Armor Stand'/2000012716, l='MpServer', x=-1024,90, y=68,09, z=3434,33], EntityArmorStand['Armor Stand'/2000012719, l='MpServer', x=-1024,90, y=68,50, z=3434,33], EntityArmorStand['Armor Stand'/2000012718, l='MpServer', x=-1024,90, y=68,59, z=3434,33], EntityArmorStand['§7Prawy przycisk'/2588, l='MpServer', x=-1070,50, y=67,94, z=3479,00], EntityOtherPlayerMP['Mikelo300'/748734, l='MpServer', x=-1024,89, y=66,00, z=3434,32], EntityArmorStand['§b§lULEPSZENIA'/2589, l='MpServer', x=-1070,50, y=68,16, z=3479,00], EntityArmorStand['Armor Stand'/2000012715, l='MpServer', x=-1024,90, y=67,81, z=3434,33], EntityArmorStand['§7Prawy przycisk'/2590, l='MpServer', x=-1070,53, y=67,94, z=3472,00], EntityArmorStand['§a§lSKLEP'/2591, l='MpServer', x=-1070,53, y=68,16, z=3472,00], EntityItem['item.item.ingotIron'/750906, l='MpServer', x=-1071,88, y=65,50, z=3474,45], EntityOtherPlayerMP['Mikelo300'/748734, l='MpServer', x=-1024,89, y=66,00, z=3434,32], EntityVillager['Villager'/953, l='MpServer', x=-1070,50, y=66,00, z=3528,97], EntityVillager['Villager'/955, l='MpServer', x=-1070,50, y=66,00, z=3522,00], EntityArmorStand['§7Prawy przycisk'/2624, l='MpServer', x=-1070,50, y=67,94, z=3528,97], EntityArmorStand['§b§lULEPSZENIA'/2625, l='MpServer', x=-1070,50, y=68,16, z=3528,97], EntityArmorStand['§7Prawy przycisk'/2626, l='MpServer', x=-1070,50, y=67,94, z=3522,00], EntityArmorStand['§a§lSKLEP'/2627, l='MpServer', x=-1070,50, y=68,16, z=3522,00], EntityItem['item.item.ingotGold'/750673, l='MpServer', x=-1070,94, y=65,50, z=3475,50], EntityItem['item.item.ingotIron'/750928, l='MpServer', x=-1071,50, y=65,69, z=3475,50], EntityOtherPlayerMP['johnhy'/745836, l='MpServer', x=-1063,66, y=70,03, z=3509,63], EntityVillager['Villager'/877, l='MpServer', x=-1027,97, y=66,00, z=3429,50], EntityPlayerSP['9B3st4H4dd0ck__3'/46950, l='MpServer', x=-1068,49, y=66,00, z=3475,42], EntityArmorStand['§aSzmaragd: §ePoziom §cI'/748923, l='MpServer', x=-1014,50, y=62,19, z=3500,50], EntityArmorStand['§7Pojawi się za §e12sek'/748922, l='MpServer', x=-1014,50, y=62,00, z=3500,50], EntityArmorStand['§aSzmaragd: §ePoziom §cI'/748921, l='MpServer', x=-999,50, y=62,19, z=3485,50], EntityArmorStand['§7Pojawi się za §e12sek'/748920, l='MpServer', x=-999,50, y=62,00, z=3485,50], EntityOtherPlayerMP['orzelek123'/746751, l='MpServer', x=-977,34, y=67,00, z=3538,79], EntityArmorStand['§7Prawy przycisk'/2548, l='MpServer', x=-1027,97, y=67,94, z=3429,50], EntityArmorStand['§b§lULEPSZENIA'/2549, l='MpServer', x=-1027,97, y=68,16, z=3429,50], EntityArmorStand['§eKliknij'/748926, l='MpServer', x=-1024,50, y=66,69, z=3428,13], EntityOtherPlayerMP['poiuyt223'/746365, l='MpServer', x=-974,83, y=65,00, z=3447,58], EntityItemFrame['entity.ItemFrame.name'/745853, l='MpServer', x=-1071,97, y=67,50, z=3475,50], EntityArmorStand['§bDiament: §ePoziom §cI'/748915, l='MpServer', x=-1024,50, y=64,19, z=3525,50], EntityArmorStand['§7Pojawi się za §e2sek'/748914, l='MpServer', x=-1024,50, y=64,00, z=3525,50], EntityArmorStand['§bDiament: §ePoziom §cI'/748913, l='MpServer', x=-1024,50, y=64,19, z=3475,50], EntityArmorStand['§7Pojawi się za §e2sek'/748912, l='MpServer', x=-1024,50, y=64,00, z=3475,50], EntityArmorStand['§aSzmaragd: §ePoziom §cI'/748917, l='MpServer', x=-999,50, y=62,19, z=3515,50], EntityArmorStand['§7Pojawi się za §e12sek'/748916, l='MpServer', x=-999,50, y=62,00, z=3515,50]]
+	Retry entities: 0 total; []
+	Server brand: CraftCube
+	Server type: Non-integrated multiplayer server
+Stacktrace:
+	at net.minecraft.client.multiplayer.WorldClient.addWorldInfoToCrashReport(WorldClient.java:347)
+	at net.minecraft.client.Minecraft.addGraphicsAndWorldToCrashReport(Minecraft.java:2536)
+	at net.minecraft.client.Minecraft.run(Minecraft.java:370)
+	at net.minecraft.client.main.Main.main(SourceFile:124)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at net.minecraft.launchwrapper.Launch.launch(Launch.java:135)
+	at net.minecraft.launchwrapper.Launch.main(Launch.java:28)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at net.minecraftforge.gradle.GradleStartCommon.launch(GradleStartCommon.java:95)
+	at GradleStart.main(GradleStart.java:24)
+
+-- System Details --
+Details:
+	Minecraft Version: 1.8.9
+	Operating System: Windows 11 (amd64) version 10.0
+	Java Version: 1.8.0_412, Azul Systems, Inc.
+	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode), Azul Systems, Inc.
+	Memory: 988665264 bytes (942 MB) / 2213543936 bytes (2111 MB) up to 3817865216 bytes (3641 MB)
+	JVM Flags: 2 total; -Xmx4096m -Xms1024m
+	IntCache: cache: 0, tcache: 53, allocated: 13, tallocated: 95
+	FML: MCP 9.19 Powered by Forge 11.15.1.2318 3 mods loaded, 3 mods active
+	States: 'U' = Unloaded 'L' = Loaded 'C' = Constructed 'H' = Pre-initialized 'I' = Initialized 'J' = Post-initialized 'A' = Available 'D' = Disabled 'E' = Errored
+	UCHIJA	mcp{9.19} [Minecraft Coder Pack] (minecraft.jar) 
+	UCHIJA	FML{8.0.99.99} [Forge Mod Loader] (forgeBin-1.8.9-11.15.1.2318-1.8.9-PROJECT(LiquidBounce).jar) 
+	UCHIJA	Forge{11.15.1.2318} [Minecraft Forge] (forgeBin-1.8.9-11.15.1.2318-1.8.9-PROJECT(LiquidBounce).jar) 
+	Loaded coremods (and transformers): 
+MixinLoader (unknown)
+  net.ccbluex.liquidbounce.injection.transformers.ForgeNetworkTransformer
+  net.ccbluex.liquidbounce.script.remapper.injection.transformers.AbstractJavaLinkerTransformer
+	GL info: ' Vendor: 'ATI Technologies Inc.' Version: '4.6.0 Compatibility Profile Context 22.20.27.09.231121' Renderer: 'AMD Radeon RX 6700 XT'
+	Launched Version: 1.8.9
+	LWJGL: 2.9.4
+	OpenGL: AMD Radeon RX 6700 XT GL version 4.6.0 Compatibility Profile Context 22.20.27.09.231121, ATI Technologies Inc.
+	GL Caps: Using GL 1.3 multitexturing.
+Using GL 1.3 texture combiners.
+Using framebuffer objects because OpenGL 3.0 is supported and separate blending is supported.
+Shaders are available because OpenGL 2.1 is supported.
+VBOs are available because OpenGL 1.5 is supported.
+
+	Using VBOs: No
+	Is Modded: Definitely; Client brand changed to 'fml,forge'
+	Type: Client (map_client.txt)
+	Resource Packs: !   §9Nightfault §f16x §5(Purple)
+	Current Language: English (US)
+	Profiler Position: N/A (disabled)
+	CPU: 12x AMD Ryzen 5 5600 6-Core Processor 

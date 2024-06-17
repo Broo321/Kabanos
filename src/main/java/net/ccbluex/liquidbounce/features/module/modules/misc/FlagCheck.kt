@@ -7,23 +7,24 @@ package net.ccbluex.liquidbounce.features.module.modules.misc
 
 import net.ccbluex.liquidbounce.event.*
 import net.ccbluex.liquidbounce.features.module.Module
-import net.ccbluex.liquidbounce.features.module.ModuleCategory
+import net.ccbluex.liquidbounce.features.module.Category
+import net.ccbluex.liquidbounce.features.module.modules.combat.KillAura
 import net.ccbluex.liquidbounce.script.api.global.Chat
-import net.ccbluex.liquidbounce.utils.extensions.onPlayerRightClick
 import net.ccbluex.liquidbounce.value.BoolValue
 import net.ccbluex.liquidbounce.value.FloatValue
 import net.ccbluex.liquidbounce.value.IntegerValue
+import net.minecraft.client.gui.GuiGameOver
+import net.minecraft.init.Blocks
 import net.minecraft.network.login.server.S00PacketDisconnect
+import net.minecraft.network.play.client.C08PacketPlayerBlockPlacement
 import net.minecraft.network.play.server.S01PacketJoinGame
 import net.minecraft.network.play.server.S08PacketPlayerPosLook
 import net.minecraft.util.BlockPos
-import net.minecraft.util.EnumFacing
-import net.minecraft.util.Vec3
 import kotlin.math.abs
 import kotlin.math.roundToLong
 import kotlin.math.sqrt
 
-object FlagCheck : Module("FlagCheck", ModuleCategory.MISC, gameDetecting = true) {
+object FlagCheck : Module("FlagCheck", Category.MISC, gameDetecting = true, hideModule = false) {
 
     private val resetFlagCounterTicks by IntegerValue("ResetCounterTicks", 600, 100..1000)
     private val rubberbandCheck by BoolValue("RubberbandCheck", false)
@@ -33,13 +34,17 @@ object FlagCheck : Module("FlagCheck", ModuleCategory.MISC, gameDetecting = true
     private var lastYaw = 0F
     private var lastPitch = 0F
 
+    private var blockPlacementAttempts = mutableMapOf<BlockPos, Long>()
+    private var successfulPlacements = mutableSetOf<BlockPos>()
+
     private fun clearFlags() {
         flagCount = 0
+        blockPlacementAttempts.clear()
+        successfulPlacements.clear()
     }
 
     private var lagbackDetected = false
     private var forceRotateDetected = false
-    private var ghostBlockDetected = false
 
     private var lastMotionX = 0.0
     private var lastMotionY = 0.0
@@ -71,26 +76,15 @@ object FlagCheck : Module("FlagCheck", ModuleCategory.MISC, gameDetecting = true
             if (deltaYaw > 90 || deltaPitch > 90) {
                 forceRotateDetected = true
                 flagCount++
-                Chat.print("§7(§9FlagCheck§7) §dDetected §3Force-Rotate §e(${deltaYaw.roundToLong()}° | ${deltaPitch.roundToLong()}°) §b(§c${flagCount}x§b)")
+                Chat.print("§dDetected §3Force-Rotate §e(${deltaYaw.roundToLong()}° | ${deltaPitch.roundToLong()}°) §b(§c${flagCount}x§b)")
             } else {
                 forceRotateDetected = false
             }
 
-            // Idk still testing :/
-            // TODO: Make better check for ghostblock
-            if (player.onGround && player.onPlayerRightClick(BlockPos.ORIGIN, EnumFacing.DOWN, Vec3(packet.x, packet.y, packet.z))
-                && player.lookVec.rotatePitch(-90f) != null) {
-                ghostBlockDetected = true
-                flagCount++
-                Chat.print("§7(§9FlagCheck§7) §dDetected §3GhostBlock §b(§eS08Packet§b) §b(§c${flagCount}x§b)")
-            } else {
-                ghostBlockDetected = false
-            }
-
-            if (!forceRotateDetected && !ghostBlockDetected) {
+            if (!forceRotateDetected) {
                 lagbackDetected = true
                 flagCount++
-                Chat.print("§7(§9FlagCheck§7) §dDetected §3Lagback §b(§c${flagCount}x§b)")
+                Chat.print("§dDetected §3Lagback §b(§c${flagCount}x§b)")
             }
 
             if (mc.thePlayer.ticksExisted % 3 == 0) {
@@ -99,6 +93,12 @@ object FlagCheck : Module("FlagCheck", ModuleCategory.MISC, gameDetecting = true
 
             lastYaw = mc.thePlayer.rotationYawHead
             lastPitch = mc.thePlayer.rotationPitch
+        }
+
+        if (packet is C08PacketPlayerBlockPlacement) {
+            val blockPos = packet.position
+            blockPlacementAttempts[blockPos] = System.currentTimeMillis()
+            successfulPlacements.add(blockPos)
         }
 
         when (packet) {
@@ -116,16 +116,49 @@ object FlagCheck : Module("FlagCheck", ModuleCategory.MISC, gameDetecting = true
     }
 
     /**
-     * Rubberband Checks (Still Under Testing)
+     * Rubberband, Invalid Health/Hunger & GhostBlock Checks
      */
     @EventTarget
     fun onUpdate(event: UpdateEvent) {
         val player = mc.thePlayer ?: return
+        val world = mc.theWorld ?: return
 
-        if (!rubberbandCheck || player.ticksExisted <= 100)
+        if (player.isDead || mc.currentScreen is GuiGameOver || player.ticksExisted <= 100) {
             return
+        }
 
-        if (player.isDead || (player.capabilities.isFlying && player.capabilities.disableDamage && !player.onGround))
+        val currentTime = System.currentTimeMillis()
+
+        // GhostBlock Checks
+        blockPlacementAttempts.filter { (_, timestamp) ->
+            currentTime - timestamp > 500
+        }.forEach { (blockPos, _) ->
+            val block = world.getBlockState(blockPos).block
+            val isNotUsing = !player.isUsingItem && !player.isBlocking && (!KillAura.renderBlocking || !KillAura.blockStatus)
+
+            if (block == Blocks.air && player.swingProgressInt > 2 && successfulPlacements != blockPos && isNotUsing) {
+                successfulPlacements.remove(blockPos)
+                flagCount++
+                Chat.print("§dDetected §3GhostBlock §b(§c${flagCount}x§b)")
+            }
+
+            blockPlacementAttempts.remove(blockPos)
+        }
+
+        // Invalid Health/Hunger bar Checks (This is a known lagback by Intave AC)
+        val invalidReason = mutableListOf<String>()
+        if (player.health <= 0.0f) invalidReason.add("Health")
+        if (player.foodStats.foodLevel <= 0) invalidReason.add("Hunger")
+
+        if (invalidReason.isNotEmpty()) {
+            flagCount++
+            val reasonString = invalidReason.joinToString(" §8|§e ")
+            Chat.print("§dDetected §3Invalid §e$reasonString §b(§c${flagCount}x§b)")
+            invalidReason.clear()
+        }
+
+        // Rubberband Checks
+        if (!rubberbandCheck || (player.capabilities.isFlying && player.capabilities.disableDamage && !player.onGround))
             return
 
         val motionX = player.motionX
@@ -154,6 +187,7 @@ object FlagCheck : Module("FlagCheck", ModuleCategory.MISC, gameDetecting = true
             flagCount++
             val reasonString = rubberbandReason.joinToString(" §8|§e ")
             Chat.print("§7(§9FlagCheck§7) §dDetected §3Rubberband §8(§e$reasonString§8) §b(§c${flagCount}x§b)")
+            rubberbandReason.clear()
         }
 
         // Update last position and motion
