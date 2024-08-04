@@ -30,8 +30,6 @@ local SettingsGui = Instance.new("ScrollingFrame")
 local TextLabel_3 = Instance.new("TextLabel")
 local TextLabel_4 = Instance.new("TextLabel")
 local TextLabel_5 = Instance.new("TextLabel")
-local Close = Instance.new("TextButton")
-local UICorner_8 = Instance.new("UICorner")
 
 --Properties:
 
@@ -50,7 +48,6 @@ Open.Font = Enum.Font.SourceSans
 Open.Text = "Otwórz"
 Open.TextColor3 = Color3.fromRGB(255, 255, 255)
 Open.TextSize = 14.000
-Open.ResetOnSpawn = false
 
 UICorner.Parent = Open
 
@@ -61,7 +58,6 @@ Kabanos.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Kabanos.BorderSizePixel = 0
 Kabanos.Position = UDim2.new(0.329710156, 0, 0.336244553, 0)
 Kabanos.Size = UDim2.new(0, 355, 0, 224)
-Kabanos.Visible = false
 
 panel1.Name = "panel1"
 panel1.Parent = Kabanos
@@ -288,149 +284,129 @@ TextLabel_5.TextScaled = true
 TextLabel_5.TextSize = 14.000
 TextLabel_5.TextWrapped = true
 
-Close.Name = "Close"
-Close.Parent = KabanosGui
-Close.BackgroundColor3 = Color3.fromRGB(67, 67, 67)
-Close.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Close.BorderSizePixel = 0
-Close.Position = UDim2.new(0, 0, 0.79475981, 0)
-Close.Size = UDim2.new(0, 47, 0, 26)
-Close.Visible = false
-Close.Font = Enum.Font.SourceSans
-Close.Text = "Zamknij"
-Close.TextColor3 = Color3.fromRGB(255, 255, 255)
-Close.TextSize = 14.000
-Close.ResetOnSpawn = false
-
-UICorner_8.Parent = Close
-
 -- Scripts:
 
-local function SYLI_fake_script() -- ScriptHubGui.LocalScript 
-	local script = Instance.new('LocalScript', ScriptHubGui)
+local function BSNQK_fake_script() -- ScriptHubGui.LocalScript 
+    local script = Instance.new('LocalScript', ScriptHubGui)
 
-	local Bladeball = script.Parent:FindFirstChild("BladeBall")
-	local infyeld = script.Parent:FindFirstChild("infyeldadmin")
-	
-	Bladeball.MouseButton1Click:Connect(function() 
-	    loadstring("\108\111\97\100\115\116\114\105\110\103\40\103\97\109\101\58\72\116\116\112\71\101\116\40\34\104\116\116\112\115\58\47\47\102\114\101\101\110\111\116\101\46\98\105\122\47\114\97\119\47\110\102\122\48\122\113\100\121\117\110\34\41\41\40\41\10")()
-	end)
-	
-	infyeld.MouseButton1Click:Connect(function() 
-	    loadstring("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source")
-	end)
+    local Bladeball = script.Parent:FindFirstChild("BladeBall")
+    local infyeld = script.Parent:FindFirstChild("infyeldadmin")
+    
+    Bladeball.MouseButton1Click:Connect(function() 
+        loadstring("\108\111\97\100\115\116\114\105\110\103\40\103\97\109\101\58\72\116\116\112\71\101\116\40\34\104\116\116\112\115\58\47\47\102\114\101\101\110\111\116\101\46\98\105\122\47\114\97\119\47\110\102\122\48\122\113\100\121\117\110\34\41\41\40\41\10")()
+    end)
+    
+    infyeld.MouseButton1Click:Connect(function() 
+        loadstring("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source")
+    end)
 end
-coroutine.wrap(SYLI_fake_script)()
-local function TSFHO_fake_script() -- Kabanos.Kategorie 
-	local script = Instance.new('LocalScript', Kabanos)
+coroutine.wrap(BSNQK_fake_script)()
+local function YRVYJS_fake_script() -- Kabanos.Kategorie 
+    local script = Instance.new('LocalScript', Kabanos)
 
-	local buttonRender = script.Parent:FindFirstChild("Render")
-	local buttonScriptHub = script.Parent:FindFirstChild("ScriptHub")
-	local buttonSettings = script.Parent:FindFirstChild("Settings")
-	local buttonPlayer = script.Parent:FindFirstChild("Player")
-	local renderGui = script.Parent.Render:FindFirstChild("RenderGui")
-	local scriptHubGui = script.Parent.ScriptHub:FindFirstChild("ScriptHubGui")
-	local settingsGui = script.Parent.Settings:FindFirstChild("SettingsGui")
-	local buttonGui = script.Parent.Player:FindFirstChild("PlayerGui")
-	
-	local function toggleGui(gui, ...)
-		-- Zamknij wszystkie inne GUI
-		for _, otherGui in ipairs({...}) do
-			if otherGui ~= gui then
-				otherGui.Visible = false
-			end
-		end
-		-- Przełącz widoczność wybranego GUI
-		gui.Visible = not gui.Visible
-	end
-	buttonRender.MouseButton1Click:Connect(function()
-		toggleGui(renderGui, scriptHubGui, settingsGui, buttonGui)
-	end)
-	
-	buttonScriptHub.MouseButton1Click:Connect(function()
-		toggleGui(scriptHubGui, renderGui, settingsGui, buttonGui)
-	end)
-	
-	buttonSettings.MouseButton1Click:Connect(function()
-		toggleGui(settingsGui, renderGui, scriptHubGui, buttonGui)
-	end)
-	
-	buttonPlayer.MouseButton1Click:Connect(function()
-		toggleGui(buttonGui, renderGui, scriptHubGui, settingsGui)
-	end)
+    local buttonRender = script.Parent:FindFirstChild("Render")
+    local buttonScriptHub = script.Parent:FindFirstChild("ScriptHub")
+    local buttonSettings = script.Parent:FindFirstChild("Settings")
+    local buttonPlayer = script.Parent:FindFirstChild("Player")
+    local renderGui = script.Parent.Render:FindFirstChild("RenderGui")
+    local scriptHubGui = script.Parent.ScriptHub:FindFirstChild("ScriptHubGui")
+    local settingsGui = script.Parent.Settings:FindFirstChild("SettingsGui")
+    local buttonGui = script.Parent.Player:FindFirstChild("PlayerGui")
+    
+    local function toggleGui(gui, ...)
+        -- Zamknij wszystkie inne GUI
+        for _, otherGui in ipairs({...}) do
+            if otherGui ~= gui then
+                otherGui.Visible = false
+            end
+        end
+        -- Przełącz widoczność wybranego GUI
+        gui.Visible = not gui.Visible
+    end
+    buttonRender.MouseButton1Click:Connect(function()
+        toggleGui(renderGui, scriptHubGui, settingsGui, buttonGui)
+    end)
+    
+    buttonScriptHub.MouseButton1Click:Connect(function()
+        toggleGui(scriptHubGui, renderGui, settingsGui, buttonGui)
+    end)
+    
+    buttonSettings.MouseButton1Click:Connect(function()
+        toggleGui(settingsGui, renderGui, scriptHubGui, buttonGui)
+    end)
+    
+    buttonPlayer.MouseButton1Click:Connect(function()
+        toggleGui(buttonGui, renderGui, scriptHubGui, settingsGui)
+    end)
 end
-coroutine.wrap(TSFHO_fake_script)()
-local function FXOI_fake_script() -- KabanosGui.Otwieranie 
-	local script = Instance.new('LocalScript', KabanosGui)
+coroutine.wrap(YRVYJS_fake_script)()
+local function KTFEB_fake_script() -- KabanosGui.Otwieranie 
+    local script = Instance.new('LocalScript', KabanosGui)
 
-	-- Znajdź przyciski i element GUI
-	local close = script.Parent:FindFirstChild("Close")
-	local open = script.Parent:FindFirstChild("Open")
-	local gui = open.Parent -- Zakładam, że oba elementy są w tym samym ScreenGui
-	local frame = gui:FindFirstChild("Kabanos") -- Zmień "Kabanos" na nazwę swojego elementu GUI
-	
-	-- Zmienne pomocnicze dla przeciągania
-	local dragging = false
-	local dragStart = nil
-	local startPos = nil
-	
-	-- Funkcja rozpoczynająca przeciąganie
-	local function startDrag(input)
-		dragging = true
-		dragStart = input.Position
-		startPos = frame.Position
-	
-		input.Changed:Connect(function()
-			if input.UserInputState == Enum.UserInputState.End then
-				dragging = false
-			end
-		end)
-	end
-	
-	-- Funkcja aktualizująca przeciąganie
-	local function updateDrag(input)
-		if dragging then
-			local delta = input.Position - dragStart
-			frame.Position = UDim2.new(
-				startPos.X.Scale,
-				startPos.X.Offset + delta.X,
-				startPos.Y.Scale,
-				startPos.Y.Offset + delta.Y
-			)
-		end
-	end
-	
-	-- Podłączenie funkcji do zdarzeń przeciągania
-	frame.InputBegan:Connect(function(input)
-		if input.UserInputType == Enum.UserInputType.MouseButton1 then
-			startDrag(input)
-		end
-	end)
-	
-	frame.InputChanged:Connect(function(input)
-		if input.UserInputType == Enum.UserInputType.MouseMovement then
-			updateDrag(input)
-		end
-	end)
-	
-	frame.InputEnded:Connect(function(input)
-		if input.UserInputType == Enum.UserInputType.MouseButton1 then
-			dragging = false
-		end
-	end)
-	
-	-- Funkcjonalność przycisków
-	open.MouseButton1Click:Connect(function()
-		open.Visible = false
-		frame.Visible = true
-		close.Visible = true
-	end)
-	
-	close.MouseButton1Click:Connect(function()
-		open.Visible = true
-		frame.Visible = false
-		close.Visible = false
-	end)
-	
+    local button = script.Parent:FindFirstChild("Open")
+    local gui = button.Parent -- Zakładam, że oba elementy są w tym samym ScreenGui
+    local frame = gui:FindFirstChild("Kabanos") -- Zmień "Kabanos" na nazwę swojego elementu GUI
+    
+    local function UruchomKabanosHub()
+        if frame then
+            frame.Visible = not frame.Visible
+        else
+            warn("Nie znaleziono elementu o nazwie 'Kabanos'")
+        end
+    end
+    
+    
+    -- Funkcjonalność przycisków
+    button.MouseButton1Click:Connect(UruchomKabanosHub)
+    
+    -- Zmienne pomocnicze dla przeciągania
+    local dragging = false
+    local dragStart = nil
+    local startPos = nil
+    
+    -- Funkcja rozpoczynająca przeciąganie
+    local function startDrag(input)
+        dragging = true
+        dragStart = input.Position
+        startPos = frame.Position
+    
+        input.Changed:Connect(function()
+            if input.UserInputState == Enum.UserInputState.End then
+                dragging = false
+            end
+        end)
+    end
+    
+    -- Funkcja aktualizująca przeciąganie
+    local function updateDrag(input)
+        if dragging then
+            local delta = input.Position - dragStart
+            frame.Position = UDim2.new(
+                startPos.X.Scale,
+                startPos.X.Offset + delta.X,
+                startPos.Y.Scale,
+                startPos.Y.Offset + delta.Y
+            )
+        end
+    end
+    
+    -- Podłączenie funkcji do zdarzeń przeciągania
+    frame.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 then
+            startDrag(input)
+        end
+    end)
+    
+    frame.InputChanged:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseMovement then
+            updateDrag(input)
+        end
+    end)
+    
+    frame.InputEnded:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 then
+            dragging = false
+        end
+    end)
 end
-coroutine.wrap(FXOI_fake_script)()
+coroutine.wrap(KTFEB_fake_script)()
